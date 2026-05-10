@@ -426,6 +426,144 @@
     "region": "识字林"
   },
   {
+    "id": 51,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“one”的汉语意思是？",
+    "options": [
+      "二",
+      "三",
+      "四",
+      "一"
+    ],
+    "answer": 3,
+    "region": "英语森林"
+  },
+  {
+    "id": 52,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“cat”是什么动物？",
+    "options": [
+      "狗",
+      "猫",
+      "鸟",
+      "鱼"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 53,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“red”是什么颜色？",
+    "options": [
+      "蓝色",
+      "绿色",
+      "红色",
+      "黄色"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 54,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“five”对应数字几？",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 55,
+    "subject": "english",
+    "grade": 2,
+    "type": "fill",
+    "question": "“three”对应数字____。",
+    "answer": "3",
+    "region": "英语森林"
+  },
+  {
+    "id": 56,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“yellow”是什么颜色？",
+    "options": [
+      "红色",
+      "蓝色",
+      "黄色",
+      "绿色"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 57,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“dog”翻译成汉语是？",
+    "options": [
+      "猫",
+      "狗",
+      "鸟",
+      "鱼"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 58,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“book”的复数形式是？",
+    "options": [
+      "bookes",
+      "books",
+      "bookies",
+      "book's"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 59,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“sun”是什么？",
+    "options": [
+      "月亮",
+      "星星",
+      "太阳",
+      "地球"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 60,
+    "subject": "english",
+    "grade": 2,
+    "type": "fill",
+    "question": "I am a ____。（填写动物：狗的英语单词）",
+    "answer": "dog",
+    "region": "英语森林"
+  },
+  {
     "id": 31,
     "subject": "math",
     "grade": 2,
@@ -708,141 +846,1281 @@
     "region": "数学迷宫"
   },
   {
-    "id": 51,
-    "subject": "english",
-    "grade": 2,
+    "id": 101,
+    "subject": "chinese",
+    "grade": 3,
     "type": "choice",
-    "question": "“one”的汉语意思是？",
+    "question": "「早晨」的「晨」字共有几画？",
     "options": [
-      "二",
-      "三",
-      "四",
-      "一"
+      "10画",
+      "11画",
+      "12画",
+      "13画"
+    ],
+    "answer": 1,
+    "region": "识字城堡"
+  },
+  {
+    "id": 102,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "choice",
+    "question": "下面哪个字的读音是「zhì」？",
+    "options": [
+      "知",
+      "智",
+      "志",
+      "置"
+    ],
+    "answer": 2,
+    "region": "拼音村"
+  },
+  {
+    "id": 103,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "fill",
+    "question": "《咏柳》中「碧玉妆成______，二月春风似剪刀。」",
+    "answer": "一树高",
+    "region": "古诗塔"
+  },
+  {
+    "id": 104,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "choice",
+    "question": "「荷花」一课中，荷花的香味是？",
+    "options": [
+      "清香",
+      "浓香",
+      "微香",
+      "无味"
+    ],
+    "answer": 0,
+    "region": "阅读湖"
+  },
+  {
+    "id": 105,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "choice",
+    "question": "「池塘」中「塘」的偏旁是？",
+    "options": [
+      "土",
+      "氵",
+      "广",
+      "口"
+    ],
+    "answer": 1,
+    "region": "识字城堡"
+  },
+  {
+    "id": 106,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "fill",
+    "question": "成语「千里之行，始于足下」的意思是人要走千里远的路，要从脚下第一步开始，比喻________________。",
+    "answer": "做事要从小事做起|成功需要积累",
+    "region": "成语园"
+  },
+  {
+    "id": 107,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "choice",
+    "question": "「窗前」中「窗」字的结构是？",
+    "options": [
+      "上下结构",
+      "上中下结构",
+      "左右结构",
+      "半包围结构"
     ],
     "answer": 3,
-    "region": "英语森林"
+    "region": "识字城堡"
   },
   {
-    "id": 52,
-    "subject": "english",
-    "grade": 2,
+    "id": 108,
+    "subject": "chinese",
+    "grade": 3,
     "type": "choice",
-    "question": "“cat”是什么动物？",
+    "question": "「燕子」一文中，燕子的尾巴像？",
     "options": [
-      "狗",
-      "猫",
-      "鸟",
-      "鱼"
+      "剪刀",
+      "扇子",
+      "镰刀",
+      "箭头"
+    ],
+    "answer": 0,
+    "region": "阅读湖"
+  },
+  {
+    "id": 109,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "fill",
+    "question": "「春眠不觉晓，处处闻啼鸟。夜来风雨声，______。」",
+    "answer": "花落知多少",
+    "region": "古诗塔"
+  },
+  {
+    "id": 110,
+    "subject": "chinese",
+    "grade": 3,
+    "type": "choice",
+    "question": "「活跃」的反义词是？",
+    "options": [
+      "沉静",
+      "安静",
+      "平静",
+      "冷静"
+    ],
+    "answer": 0,
+    "region": "词汇林"
+  },
+  {
+    "id": 121,
+    "subject": "english",
+    "grade": 3,
+    "type": "choice",
+    "question": "\"apple\"的汉语意思是？",
+    "options": [
+      "香蕉",
+      "苹果",
+      "橙子",
+      "葡萄"
     ],
     "answer": 1,
     "region": "英语森林"
   },
   {
-    "id": 53,
+    "id": 122,
     "subject": "english",
-    "grade": 2,
+    "grade": 3,
     "type": "choice",
-    "question": "“red”是什么颜色？",
+    "question": "\"Good morning\"的意思是？",
     "options": [
-      "蓝色",
-      "绿色",
-      "红色",
-      "黄色"
+      "晚上好",
+      "下午好",
+      "早上好",
+      "再见"
     ],
     "answer": 2,
     "region": "英语森林"
   },
   {
-    "id": 54,
+    "id": 123,
     "subject": "english",
-    "grade": 2,
+    "grade": 3,
+    "type": "fill",
+    "question": "\"Hello\"的意思是______。",
+    "answer": "你好",
+    "region": "英语森林"
+  },
+  {
+    "id": 124,
+    "subject": "english",
+    "grade": 3,
     "type": "choice",
-    "question": "“five”对应数字几？",
+    "question": "下面哪个单词是颜色？",
     "options": [
-      "4",
+      "cat",
+      "dog",
+      "red",
+      "book"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 125,
+    "subject": "english",
+    "grade": 3,
+    "type": "choice",
+    "question": "\"How are you?\"的回答是？",
+    "options": [
+      "I'm fine.",
+      "I'm five.",
+      "I'm tall.",
+      "I'm a boy."
+    ],
+    "answer": 0,
+    "region": "英语森林"
+  },
+  {
+    "id": 111,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "25×4=？",
+    "options": [
+      "90",
+      "100",
+      "110",
+      "120"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 112,
+    "subject": "math",
+    "grade": 3,
+    "type": "fill",
+    "question": "1吨=______千克",
+    "answer": "1000",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 113,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "一个正方形的边长是5厘米，它的周长是？",
+    "options": [
+      "10厘米",
+      "15厘米",
+      "20厘米",
+      "25厘米"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 114,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "345-198=？",
+    "options": [
+      "147",
+      "148",
+      "247",
+      "248"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 115,
+    "subject": "math",
+    "grade": 3,
+    "type": "fill",
+    "question": "6时30分=______分",
+    "answer": "390",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 116,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "456÷8=？",
+    "options": [
+      "57",
+      "56",
+      "55",
+      "58"
+    ],
+    "answer": 0,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 117,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "下面哪个图形不是轴对称图形？",
+    "options": [
+      "正方形",
+      "长方形",
+      "平行四边形",
+      "等腰三角形"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 118,
+    "subject": "math",
+    "grade": 3,
+    "type": "fill",
+    "question": "在括号里填上合适的单位：一个苹果约重150______。",
+    "answer": "克",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 119,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "小明从家到学校要走15分钟，他要在8:00到校，最晚应该几点出发？",
+    "options": [
+      "7:35",
+      "7:40",
+      "7:45",
+      "7:50"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 120,
+    "subject": "math",
+    "grade": 3,
+    "type": "choice",
+    "question": "一个长方形的长是8厘米，宽是5厘米，面积是？",
+    "options": [
+      "13平方厘米",
+      "26平方厘米",
+      "40平方厘米",
+      "80平方厘米"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 126,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "《观潮》中，钱塘江大潮被称为「天下奇观」是因为？",
+    "options": [
+      "水很清",
+      "潮水壮观",
+      "鱼很多",
+      "很长"
+    ],
+    "answer": 1,
+    "region": "阅读湖"
+  },
+  {
+    "id": 127,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "fill",
+    "question": "「一道残阳铺水中，______。」（《暮江吟》）",
+    "answer": "半江瑟瑟半江红",
+    "region": "古诗塔"
+  },
+  {
+    "id": 128,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "「蟋蟀」的「蟋」字偏旁是？",
+    "options": [
+      "虫",
+      "西",
+      "矢",
+      "月"
+    ],
+    "answer": 0,
+    "region": "识字城堡"
+  },
+  {
+    "id": 129,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "「爬山虎」一文中，爬山虎的脚长在？",
+    "options": [
+      "茎上",
+      "叶柄上",
+      "墙上",
+      "根上"
+    ],
+    "answer": 0,
+    "region": "阅读湖"
+  },
+  {
+    "id": 130,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "fill",
+    "question": "成语「不识庐山真面目，只缘身在此山中」出自宋代诗人______的《题西林壁》。",
+    "answer": "苏轼",
+    "region": "古诗塔"
+  },
+  {
+    "id": 131,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "「慈母手中线，游子身上衣」出自哪首诗？",
+    "options": [
+      "《游子吟》",
+      "《静夜思》",
+      "《春晓》",
+      "《悯农》"
+    ],
+    "answer": 0,
+    "region": "古诗塔"
+  },
+  {
+    "id": 132,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "「温暖」的反义词是？",
+    "options": [
+      "寒冷",
+      "炎热",
+      "凉爽",
+      "温热"
+    ],
+    "answer": 0,
+    "region": "词汇林"
+  },
+  {
+    "id": 133,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "fill",
+    "question": "「横看成岭侧成峰，远近高低各不同。不识庐山真面目，________________。」",
+    "answer": "只缘身在此山中",
+    "region": "古诗塔"
+  },
+  {
+    "id": 134,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "下面哪个词语书写正确？",
+    "options": [
+      "倾刻",
+      "倾刻",
+      "顷刻",
+      "顷刻"
+    ],
+    "answer": 2,
+    "region": "识字城堡"
+  },
+  {
+    "id": 135,
+    "subject": "chinese",
+    "grade": 4,
+    "type": "choice",
+    "question": "「巨」字有几笔？",
+    "options": [
+      "3笔",
+      "4笔",
+      "5笔",
+      "6笔"
+    ],
+    "answer": 1,
+    "region": "识字城堡"
+  },
+  {
+    "id": 146,
+    "subject": "english",
+    "grade": 4,
+    "type": "choice",
+    "question": "\"I like playing football.\"中的\"football\"是？",
+    "options": [
+      "篮球",
+      "足球",
+      "排球",
+      "网球"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 147,
+    "subject": "english",
+    "grade": 4,
+    "type": "fill",
+    "question": "\"What's your name?\"的回答：______ name is Tom.",
+    "answer": "My",
+    "region": "英语森林"
+  },
+  {
+    "id": 148,
+    "subject": "english",
+    "grade": 4,
+    "type": "choice",
+    "question": "下面哪个是星期一？",
+    "options": [
+      "Sunday",
+      "Monday",
+      "Friday",
+      "Saturday"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 149,
+    "subject": "english",
+    "grade": 4,
+    "type": "choice",
+    "question": "\"教\"的英语是？",
+    "options": [
+      "learn",
+      "teach",
+      "study",
+      "read"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 150,
+    "subject": "english",
+    "grade": 4,
+    "type": "fill",
+    "question": "\"Thank you\"的回答是：______ welcome.",
+    "answer": "You're",
+    "region": "英语森林"
+  },
+  {
+    "id": 136,
+    "subject": "math",
+    "grade": 4,
+    "type": "fill",
+    "question": "125×8=______",
+    "answer": "1000",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 137,
+    "subject": "math",
+    "grade": 4,
+    "type": "choice",
+    "question": "一个数除以32，商是12，余数是5，这个数是？",
+    "options": [
+      "384",
+      "389",
+      "379",
+      "394"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 138,
+    "subject": "math",
+    "grade": 4,
+    "type": "choice",
+    "question": "1公顷=______平方米",
+    "options": [
+      "100",
+      "1000",
+      "10000",
+      "100000"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 139,
+    "subject": "math",
+    "grade": 4,
+    "type": "fill",
+    "question": "一个三角形的底是6厘米，高是4厘米，面积是______平方厘米。",
+    "answer": "12",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 140,
+    "subject": "math",
+    "grade": 4,
+    "type": "choice",
+    "question": "0.35读作？",
+    "options": [
+      "零点三十五",
+      "零点三五",
+      "三点五",
+      "三十五"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 141,
+    "subject": "math",
+    "grade": 4,
+    "type": "choice",
+    "question": "把3.5改写成三位小数是？",
+    "options": [
+      "3.05",
+      "3.005",
+      "3.500",
+      "3.050"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 142,
+    "subject": "math",
+    "grade": 4,
+    "type": "fill",
+    "question": "3千米50米=______米",
+    "answer": "3050",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 143,
+    "subject": "math",
+    "grade": 4,
+    "type": "choice",
+    "question": "一个平行四边形的面积是24平方厘米，底是6厘米，高是？",
+    "options": [
+      "3厘米",
+      "4厘米",
+      "6厘米",
+      "8厘米"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 144,
+    "subject": "math",
+    "grade": 4,
+    "type": "choice",
+    "question": "下面的数中，最大的是？",
+    "options": [
+      "0.8",
+      "0.79",
+      "0.81",
+      "0.809"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 145,
+    "subject": "math",
+    "grade": 4,
+    "type": "fill",
+    "question": "456÷12=______",
+    "answer": "38",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 151,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "choice",
+    "question": "《草原》的作者是？",
+    "options": [
+      "老舍",
+      "巴金",
+      "冰心",
+      "鲁迅"
+    ],
+    "answer": 0,
+    "region": "阅读湖"
+  },
+  {
+    "id": 152,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "fill",
+    "question": "「白毛浮绿水，______。」（《咏鹅》）",
+    "answer": "红掌拨清波",
+    "region": "古诗塔"
+  },
+  {
+    "id": 153,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "choice",
+    "question": "「珍珠鸟」一文中，珍珠鸟从害怕到信任作者，说明？",
+    "options": [
+      "鸟很笨",
+      "信任创造美好",
+      "作者很厉害",
+      "鸟很可爱"
+    ],
+    "answer": 1,
+    "region": "阅读湖"
+  },
+  {
+    "id": 154,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "choice",
+    "question": "「国家」的「国」字是？",
+    "options": [
+      "上下结构",
+      "上中下结构",
+      "全包围结构",
+      "左右结构"
+    ],
+    "answer": 2,
+    "region": "识字城堡"
+  },
+  {
+    "id": 155,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "fill",
+    "question": "成语「画蛇添足」的意思是比喻做了多余的事，反而把事情弄坏。请写一个含有该成语的句子：________________。",
+    "answer": "做事情要适可而止，否则会画蛇添足",
+    "region": "成语园"
+  },
+  {
+    "id": 156,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "choice",
+    "question": "《落花生》告诉我们什么道理？",
+    "options": [
+      "要做有用的人",
+      "花生很好吃",
+      "种花生很有趣",
+      "花生很便宜"
+    ],
+    "answer": 0,
+    "region": "阅读湖"
+  },
+  {
+    "id": 157,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "fill",
+    "question": "「人生自古谁无死，________________。」（文天祥《过零丁洋》）",
+    "answer": "留取丹心照汗青",
+    "region": "古诗塔"
+  },
+  {
+    "id": 158,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "choice",
+    "question": "下面哪个成语书写正确？",
+    "options": [
+      "迫不急待",
+      "迫不及待",
+      "破不急待",
+      "破不及待"
+    ],
+    "answer": 1,
+    "region": "成语园"
+  },
+  {
+    "id": 159,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "choice",
+    "question": "「悠然自得」中「悠然」的意思是？",
+    "options": [
+      "很久",
+      "悠闲",
+      "遥远",
+      "忧愁"
+    ],
+    "answer": 1,
+    "region": "词汇林"
+  },
+  {
+    "id": 160,
+    "subject": "chinese",
+    "grade": 5,
+    "type": "fill",
+    "question": "「春风又绿江南岸，________________。」",
+    "answer": "明月何时照我还",
+    "region": "古诗塔"
+  },
+  {
+    "id": 171,
+    "subject": "english",
+    "grade": 5,
+    "type": "choice",
+    "question": "\"I can swim.\"的意思是？",
+    "options": [
+      "我会唱歌",
+      "我会游泳",
+      "我会跳舞",
+      "我会画画"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 172,
+    "subject": "english",
+    "grade": 5,
+    "type": "fill",
+    "question": "\"Let's go to the park.\"的回答：Good ______!",
+    "answer": "idea",
+    "region": "英语森林"
+  },
+  {
+    "id": 173,
+    "subject": "english",
+    "grade": 5,
+    "type": "choice",
+    "question": "下面哪个是季节？",
+    "options": [
+      "Monday",
+      "January",
+      "summer",
+      "morning"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 174,
+    "subject": "english",
+    "grade": 5,
+    "type": "fill",
+    "question": "\"Elephant\"的汉语意思是______。",
+    "answer": "大象",
+    "region": "英语森林"
+  },
+  {
+    "id": 175,
+    "subject": "english",
+    "grade": 5,
+    "type": "choice",
+    "question": "\"Why do you like spring?\"的回答可以是？",
+    "options": [
+      "Because I can plant trees.",
+      "I like spring.",
+      "Spring is warm.",
+      "Yes, I do."
+    ],
+    "answer": 0,
+    "region": "英语森林"
+  },
+  {
+    "id": 161,
+    "subject": "math",
+    "grade": 5,
+    "type": "fill",
+    "question": "3.5×0.2=______",
+    "answer": "0.7",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 162,
+    "subject": "math",
+    "grade": 5,
+    "type": "choice",
+    "question": "一个平行四边形的面积是36平方厘米，底是9厘米，高是？",
+    "options": [
+      "3厘米",
+      "4厘米",
+      "6厘米",
+      "12厘米"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 163,
+    "subject": "math",
+    "grade": 5,
+    "type": "choice",
+    "question": "2.5÷0.5=？",
+    "options": [
       "5",
-      "6",
-      "7"
+      "0.5",
+      "50",
+      "0.05"
     ],
-    "answer": 1,
-    "region": "英语森林"
+    "answer": 0,
+    "region": "数学迷宫"
   },
   {
-    "id": 55,
-    "subject": "english",
-    "grade": 2,
+    "id": 164,
+    "subject": "math",
+    "grade": 5,
     "type": "fill",
-    "question": "“three”对应数字____。",
-    "answer": "3",
-    "region": "英语森林"
+    "question": "一个三角形的面积是18平方厘米，底是6厘米，高是______厘米。",
+    "answer": "6",
+    "region": "数学迷宫"
   },
   {
-    "id": 56,
-    "subject": "english",
-    "grade": 2,
+    "id": 165,
+    "subject": "math",
+    "grade": 5,
     "type": "choice",
-    "question": "“yellow”是什么颜色？",
+    "question": "下面的数中，最小的是？",
     "options": [
-      "红色",
-      "蓝色",
-      "黄色",
-      "绿色"
+      "0.3",
+      "0.30",
+      "0.299",
+      "0.301"
     ],
     "answer": 2,
-    "region": "英语森林"
+    "region": "数学迷宫"
   },
   {
-    "id": 57,
-    "subject": "english",
-    "grade": 2,
-    "type": "choice",
-    "question": "“dog”翻译成汉语是？",
-    "options": [
-      "猫",
-      "狗",
-      "鸟",
-      "鱼"
-    ],
-    "answer": 1,
-    "region": "英语森林"
+    "id": 166,
+    "subject": "math",
+    "grade": 5,
+    "type": "fill",
+    "question": "4.8÷0.16=______",
+    "answer": "30",
+    "region": "数学迷宫"
   },
   {
-    "id": 58,
-    "subject": "english",
-    "grade": 2,
+    "id": 167,
+    "subject": "math",
+    "grade": 5,
     "type": "choice",
-    "question": "“book”的复数形式是？",
+    "question": "一个长方体的长是5厘米，宽是4厘米，高是3厘米，体积是？",
     "options": [
-      "bookes",
-      "books",
-      "bookies",
-      "book's"
-    ],
-    "answer": 1,
-    "region": "英语森林"
-  },
-  {
-    "id": 59,
-    "subject": "english",
-    "grade": 2,
-    "type": "choice",
-    "question": "“sun”是什么？",
-    "options": [
-      "月亮",
-      "星星",
-      "太阳",
-      "地球"
+      "12立方厘米",
+      "35立方厘米",
+      "60立方厘米",
+      "120立方厘米"
     ],
     "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 168,
+    "subject": "math",
+    "grade": 5,
+    "type": "fill",
+    "question": "75分钟=______小时",
+    "answer": "1.25|1又4分之1",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 169,
+    "subject": "math",
+    "grade": 5,
+    "type": "choice",
+    "question": "一个梯形的上底是3厘米，下底是5厘米，高是4厘米，面积是？",
+    "options": [
+      "12平方厘米",
+      "16平方厘米",
+      "24平方厘米",
+      "32平方厘米"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 170,
+    "subject": "math",
+    "grade": 5,
+    "type": "choice",
+    "question": "下列算式中，结果最大的是？",
+    "options": [
+      "2.5×1.2",
+      "2.5÷1.2",
+      "2.5×0.8",
+      "2.5÷0.8"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 176,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "choice",
+    "question": "《少年闰土》的作者是？",
+    "options": [
+      "老舍",
+      "鲁迅",
+      "巴金",
+      "茅盾"
+    ],
+    "answer": 1,
+    "region": "阅读湖"
+  },
+  {
+    "id": 177,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "fill",
+    "question": "「黑云压城城欲摧，________________。」",
+    "answer": "甲光向日金鳞开",
+    "region": "古诗塔"
+  },
+  {
+    "id": 178,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "choice",
+    "question": "「伯牙绝弦」的故事告诉我们？",
+    "options": [
+      "琴很难弹",
+      "知音难觅",
+      "伯牙很厉害",
+      "钟子期很穷"
+    ],
+    "answer": 1,
+    "region": "阅读湖"
+  },
+  {
+    "id": 179,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "choice",
+    "question": "「詹天佑」一文中，詹天佑设计的铁路是？",
+    "options": [
+      "京张铁路",
+      "京沪铁路",
+      "京广铁路",
+      "陇海铁路"
+    ],
+    "answer": 0,
+    "region": "阅读湖"
+  },
+  {
+    "id": 180,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "fill",
+    "question": "「出淤泥而不染，________________。」（周敦颐《爱莲说》）",
+    "answer": "濯清涟而不妖",
+    "region": "古诗塔"
+  },
+  {
+    "id": 181,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "choice",
+    "question": "下面哪个词语没有错别字？",
+    "options": [
+      "不曲不挠",
+      "不屈不挠",
+      "不曲不饶",
+      "不屈不饶"
+    ],
+    "answer": 1,
+    "region": "词汇林"
+  },
+  {
+    "id": 182,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "fill",
+    "question": "「山重水复疑无路，________________。」（陆游《游山西村》）",
+    "answer": "柳暗花明又一村",
+    "region": "古诗塔"
+  },
+  {
+    "id": 183,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "choice",
+    "question": "《我的伯父鲁迅先生》中，鲁迅先生是？",
+    "options": [
+      "作者的父亲",
+      "作者的伯父",
+      "作者的老师",
+      "作者的邻居"
+    ],
+    "answer": 1,
+    "region": "阅读湖"
+  },
+  {
+    "id": 184,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "choice",
+    "question": "「月光曲」中，贝多芬创作的曲子表现了？",
+    "options": [
+      "愤怒",
+      "忧伤",
+      "月光下的美好",
+      "战争"
+    ],
+    "answer": 2,
+    "region": "阅读湖"
+  },
+  {
+    "id": 185,
+    "subject": "chinese",
+    "grade": 6,
+    "type": "fill",
+    "question": "「先天下之忧而忧，________________。」（范仲淹《岳阳楼记》）",
+    "answer": "后天下之乐而乐",
+    "region": "古诗塔"
+  },
+  {
+    "id": 196,
+    "subject": "english",
+    "grade": 6,
+    "type": "choice",
+    "question": "\"I'm going to visit my grandparents tomorrow.\"的意思是？",
+    "options": [
+      "我昨天看望了祖父母",
+      "我明天打算去看望祖父母",
+      "我正在看望祖父母",
+      "我每天都看望祖父母"
+    ],
+    "answer": 1,
     "region": "英语森林"
   },
   {
-    "id": 60,
+    "id": 197,
     "subject": "english",
-    "grade": 2,
+    "grade": 6,
     "type": "fill",
-    "question": "I am a ____。（填写动物：狗的英语单词）",
-    "answer": "dog",
+    "question": "\"What did you do last weekend?\"的回答：I ______ my homework.",
+    "answer": "did",
     "region": "英语森林"
+  },
+  {
+    "id": 198,
+    "subject": "english",
+    "grade": 6,
+    "type": "choice",
+    "question": "\"hobby\"的汉语意思是？",
+    "options": [
+      "假日",
+      "爱好",
+      "工作",
+      "学习"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 199,
+    "subject": "english",
+    "grade": 6,
+    "type": "fill",
+    "question": "\"Please be quiet.\"的意思是请______。",
+    "answer": "安静",
+    "region": "英语森林"
+  },
+  {
+    "id": 200,
+    "subject": "english",
+    "grade": 6,
+    "type": "choice",
+    "question": "\"I'm taller than you.\"的意思是？",
+    "options": [
+      "我比你矮",
+      "我比你高",
+      "我比你重",
+      "我比你轻"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 186,
+    "subject": "math",
+    "grade": 6,
+    "type": "fill",
+    "question": "圆的周长公式是C=______，其中r是半径。",
+    "answer": "2πr",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 187,
+    "subject": "math",
+    "grade": 6,
+    "type": "choice",
+    "question": "一个圆的半径是3厘米，它的周长约是？",
+    "options": [
+      "9.42厘米",
+      "18.84厘米",
+      "28.26厘米",
+      "56.52厘米"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 188,
+    "subject": "math",
+    "grade": 6,
+    "type": "fill",
+    "question": "圆的面积公式是S=______。",
+    "answer": "πr²|πr*r|πr^2",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 189,
+    "subject": "math",
+    "grade": 6,
+    "type": "choice",
+    "question": "一个圆的直径是10厘米，它的面积是？",
+    "options": [
+      "31.4平方厘米",
+      "62.8平方厘米",
+      "78.5平方厘米",
+      "314平方厘米"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 190,
+    "subject": "math",
+    "grade": 6,
+    "type": "fill",
+    "question": "比例3:5=______:20中，空白处填______。",
+    "answer": "12",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 191,
+    "subject": "math",
+    "grade": 6,
+    "type": "choice",
+    "question": "把一个圆柱削成最大的圆锥，削去部分的体积是圆柱体积的？",
+    "options": [
+      "1/3",
+      "2/3",
+      "1/2",
+      "1/4"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 192,
+    "subject": "math",
+    "grade": 6,
+    "type": "fill",
+    "question": "50%等于______（用小数表示）。",
+    "answer": "0.5",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 193,
+    "subject": "math",
+    "grade": 6,
+    "type": "choice",
+    "question": "下列图形中，对称轴最多的是？",
+    "options": [
+      "等边三角形",
+      "正方形",
+      "圆",
+      "长方形"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 194,
+    "subject": "math",
+    "grade": 6,
+    "type": "fill",
+    "question": "一个数的25%是5，这个数是______。",
+    "answer": "20",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 195,
+    "subject": "math",
+    "grade": 6,
+    "type": "choice",
+    "question": "甲数是乙数的4/5，乙数与甲数的比是？",
+    "options": [
+      "4:5",
+      "5:4",
+      "1:4",
+      "1:5"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
   }
 ]
