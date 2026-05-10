@@ -1,0 +1,848 @@
+[
+  {
+    "id": 1,
+    "subject": "chinese",
+    "grade": 1,
+    "type": "choice",
+    "question": "「春」字的第一笔是？",
+    "options": [
+      "横",
+      "竖",
+      "撇",
+      "点"
+    ],
+    "answer": 2,
+    "region": "拼音村"
+  },
+  {
+    "id": 2,
+    "subject": "chinese",
+    "grade": 1,
+    "type": "choice",
+    "question": "「山」字有几笔？",
+    "options": [
+      "1笔",
+      "2笔",
+      "3笔",
+      "4笔"
+    ],
+    "answer": 2,
+    "region": "拼音村"
+  },
+  {
+    "id": 3,
+    "subject": "chinese",
+    "grade": 1,
+    "type": "choice",
+    "question": "下面哪个是「日」字的读音？",
+    "options": [
+      "rì",
+      "yuè",
+      "xīng",
+      "tiān"
+    ],
+    "answer": 0,
+    "region": "拼音村"
+  },
+  {
+    "id": 4,
+    "subject": "chinese",
+    "grade": 1,
+    "type": "fill",
+    "question": "「大」字的笔画是____画。",
+    "answer": "3",
+    "region": "拼音村"
+  },
+  {
+    "id": 5,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「歌」字的部首是？",
+    "options": [
+      "欠",
+      "口",
+      "可",
+      "彳"
+    ],
+    "answer": 1,
+    "region": "拼音村"
+  },
+  {
+    "id": 6,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「春」字的意思不包括？",
+    "options": [
+      "春天",
+      "季节",
+      "天气",
+      "冬天"
+    ],
+    "answer": 3,
+    "region": "拼音村"
+  },
+  {
+    "id": 7,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「欢」字有几笔？",
+    "options": [
+      "4笔",
+      "5笔",
+      "6笔",
+      "7笔"
+    ],
+    "answer": 2,
+    "region": "拼音村"
+  },
+  {
+    "id": 8,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「柳」字的特点是？",
+    "options": [
+      "左窄右宽",
+      "左宽右窄",
+      "左右相等",
+      "上下结构"
+    ],
+    "answer": 0,
+    "region": "识字林"
+  },
+  {
+    "id": 9,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「梅花」的「梅」读作？",
+    "options": [
+      "méi",
+      "mēi",
+      "mèi",
+      "mì"
+    ],
+    "answer": 0,
+    "region": "识字林"
+  },
+  {
+    "id": 10,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "fill",
+    "question": "「春眠不觉晓，处处闻啼鸟，夜来风雨声，____知多少。」",
+    "answer": "花落",
+    "region": "古诗塔"
+  },
+  {
+    "id": 11,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「碧」字的意思是？",
+    "options": [
+      "绿色",
+      "白色",
+      "蓝色",
+      "青绿色"
+    ],
+    "answer": 3,
+    "region": "识字林"
+  },
+  {
+    "id": 12,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "下面哪个词语中「地」读轻声？",
+    "options": [
+      "土地",
+      "慢慢地",
+      "天地",
+      "地面"
+    ],
+    "answer": 1,
+    "region": "识字林"
+  },
+  {
+    "id": 13,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「小蝌蚪找妈妈」是一篇？",
+    "options": [
+      "诗歌",
+      "童话故事",
+      "日记",
+      "寓言"
+    ],
+    "answer": 1,
+    "region": "阅读湖"
+  },
+  {
+    "id": 14,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「露」字在「露珠」中读？",
+    "options": [
+      "lòu",
+      "lù",
+      "lǜ",
+      "luò"
+    ],
+    "answer": 1,
+    "region": "拼音村"
+  },
+  {
+    "id": 15,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「神」字的偏旁是？",
+    "options": [
+      "礻",
+      "衤",
+      "讠",
+      "阝"
+    ],
+    "answer": 0,
+    "region": "识字林"
+  },
+  {
+    "id": 16,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "fill",
+    "question": "「______，二月春风似剪刀。」",
+    "answer": "碧玉妆成一树高",
+    "region": "古诗塔"
+  },
+  {
+    "id": 17,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「跳」字用音序查字法应先查？",
+    "options": [
+      "T",
+      "t",
+      "ti",
+      "d"
+    ],
+    "answer": 0,
+    "region": "拼音村"
+  },
+  {
+    "id": 18,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「村」字的意思是？",
+    "options": [
+      "城市",
+      "农村",
+      "山",
+      "水"
+    ],
+    "answer": 1,
+    "region": "识字林"
+  },
+  {
+    "id": 19,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「枫」字和什么有关？",
+    "options": [
+      "松树",
+      "柳树",
+      "枫树",
+      "杨树"
+    ],
+    "answer": 2,
+    "region": "识字林"
+  },
+  {
+    "id": 20,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「飞」字有几笔？",
+    "options": [
+      "2笔",
+      "3笔",
+      "4笔",
+      "5笔"
+    ],
+    "answer": 1,
+    "region": "拼音村"
+  },
+  {
+    "id": 21,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「春天」不是描写春天的词语是？",
+    "options": [
+      "春暖花开",
+      "春回大地",
+      "秋高气爽",
+      "万物复苏"
+    ],
+    "answer": 2,
+    "region": "阅读湖"
+  },
+  {
+    "id": 22,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「儿童急走追黄蝶」下一句是？",
+    "options": [
+      "飞入菜花无处寻",
+      "春江水暖鸭先知",
+      "忙趁东风放纸鸢",
+      "碧玉妆成一树高"
+    ],
+    "answer": 0,
+    "region": "古诗塔"
+  },
+  {
+    "id": 23,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「宿」字在「住宿」中读？",
+    "options": [
+      "sù",
+      "xiǔ",
+      "xù",
+      "shù"
+    ],
+    "answer": 0,
+    "region": "拼音村"
+  },
+  {
+    "id": 24,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "fill",
+    "question": "「两个黄鹂鸣翠柳，________。」",
+    "answer": "一行白鹭上青天",
+    "region": "古诗塔"
+  },
+  {
+    "id": 25,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「青」字可以组成？",
+    "options": [
+      "青山 青草 青天",
+      "青草 青色 青蛙",
+      "以上均可",
+      "以上都不对"
+    ],
+    "answer": 2,
+    "region": "识字林"
+  },
+  {
+    "id": 26,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「岭」字的意思是？",
+    "options": [
+      "山峰",
+      "大海",
+      "森林",
+      "河流"
+    ],
+    "answer": 0,
+    "region": "识字林"
+  },
+  {
+    "id": 27,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「含」字的结构是？",
+    "options": [
+      "上下结构",
+      "上中下结构",
+      "左右结构",
+      "半包围结构"
+    ],
+    "answer": 1,
+    "region": "识字林"
+  },
+  {
+    "id": 28,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「春晓」的「晓」意思是？",
+    "options": [
+      "早上",
+      "晚上",
+      "中午",
+      "春天"
+    ],
+    "answer": 0,
+    "region": "古诗塔"
+  },
+  {
+    "id": 29,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "「岭」字的大写字母是？",
+    "options": [
+      "L",
+      "N",
+      "M",
+      "G"
+    ],
+    "answer": 0,
+    "region": "拼音村"
+  },
+  {
+    "id": 30,
+    "subject": "chinese",
+    "grade": 2,
+    "type": "choice",
+    "question": "下列词语全是轻声词的是？",
+    "options": [
+      "妈妈 爸爸 哥哥",
+      "桌子 椅子 兔子",
+      "爷爷 奶奶 弟弟",
+      "妈妈 石头 地方"
+    ],
+    "answer": 1,
+    "region": "识字林"
+  },
+  {
+    "id": 31,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "15+27=？",
+    "options": [
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 32,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "一个三角尺有几个角？",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 33,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "3×7=？",
+    "options": [
+      "18",
+      "21",
+      "24",
+      "27"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 34,
+    "subject": "math",
+    "grade": 2,
+    "type": "fill",
+    "question": "45 - ____ = 18",
+    "answer": "27",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 35,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "从镜子中看到数字「2」，实际是？",
+    "options": [
+      "2",
+      "3",
+      "5",
+      "无法判断"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 36,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "()×4=12，括号里填？",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 37,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "100厘米=____米",
+    "options": [
+      "1",
+      "10",
+      "100",
+      "0.1"
+    ],
+    "answer": 0,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 38,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "钟面上分针走一圈，时针走？",
+    "options": [
+      "1大格",
+      "1小格",
+      "不动",
+      "2大格"
+    ],
+    "answer": 0,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 39,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "小明有18颗糖，小红比小明多9颗，小红有？",
+    "options": [
+      "26颗",
+      "27颗",
+      "28颗",
+      "25颗"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 40,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "()-15=30，括号里填？",
+    "options": [
+      "35",
+      "45",
+      "40",
+      "50"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 41,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "用3、0、8三张卡片摆三位数，可以摆出几个？",
+    "options": [
+      "2个",
+      "3个",
+      "4个",
+      "5个"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 42,
+    "subject": "math",
+    "grade": 2,
+    "type": "fill",
+    "question": "8×____=56",
+    "answer": "7",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 43,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "一个西瓜平均切成8块，小明吃了3块，还剩？",
+    "options": [
+      "4块",
+      "5块",
+      "6块",
+      "3块"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 44,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "从1数到100，单数一共多少个？",
+    "options": [
+      "48个",
+      "49个",
+      "50个",
+      "51个"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 45,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "_×5<20，括号里最大能填几？",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 46,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "小红排队做操，她前面有8人，后面有7人，一共多少人？",
+    "options": [
+      "14人",
+      "15人",
+      "16人",
+      "17人"
+    ],
+    "answer": 1,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 47,
+    "subject": "math",
+    "grade": 2,
+    "type": "fill",
+    "question": "63 ÷ ____ = 9",
+    "answer": "7",
+    "region": "数学迷宫"
+  },
+  {
+    "id": 48,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "正方形有几条对称轴？",
+    "options": [
+      "1条",
+      "2条",
+      "3条",
+      "4条"
+    ],
+    "answer": 3,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 49,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "8×8-8=？",
+    "options": [
+      "56",
+      "64",
+      "48",
+      "72"
+    ],
+    "answer": 0,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 50,
+    "subject": "math",
+    "grade": 2,
+    "type": "choice",
+    "question": "下面图形中哪些是对称图形？",
+    "options": [
+      "只有正方形",
+      "只有长方形",
+      "正方形和长方形",
+      "圆形"
+    ],
+    "answer": 2,
+    "region": "数学迷宫"
+  },
+  {
+    "id": 51,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“one”的汉语意思是？",
+    "options": [
+      "二",
+      "三",
+      "四",
+      "一"
+    ],
+    "answer": 3,
+    "region": "英语森林"
+  },
+  {
+    "id": 52,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“cat”是什么动物？",
+    "options": [
+      "狗",
+      "猫",
+      "鸟",
+      "鱼"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 53,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“red”是什么颜色？",
+    "options": [
+      "蓝色",
+      "绿色",
+      "红色",
+      "黄色"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 54,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“five”对应数字几？",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 55,
+    "subject": "english",
+    "grade": 2,
+    "type": "fill",
+    "question": "“three”对应数字____。",
+    "answer": "3",
+    "region": "英语森林"
+  },
+  {
+    "id": 56,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“yellow”是什么颜色？",
+    "options": [
+      "红色",
+      "蓝色",
+      "黄色",
+      "绿色"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 57,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“dog”翻译成汉语是？",
+    "options": [
+      "猫",
+      "狗",
+      "鸟",
+      "鱼"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 58,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“book”的复数形式是？",
+    "options": [
+      "bookes",
+      "books",
+      "bookies",
+      "book's"
+    ],
+    "answer": 1,
+    "region": "英语森林"
+  },
+  {
+    "id": 59,
+    "subject": "english",
+    "grade": 2,
+    "type": "choice",
+    "question": "“sun”是什么？",
+    "options": [
+      "月亮",
+      "星星",
+      "太阳",
+      "地球"
+    ],
+    "answer": 2,
+    "region": "英语森林"
+  },
+  {
+    "id": 60,
+    "subject": "english",
+    "grade": 2,
+    "type": "fill",
+    "question": "I am a ____。（填写动物：狗的英语单词）",
+    "answer": "dog",
+    "region": "英语森林"
+  }
+]
