@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 学习大冒险 — 设计效果图</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --pink: #FF6B9D;
+  --orange: #FF8A47;
+  --yellow: #FFD23F;
+  --green: #4ADE80;
+  --blue: #38BDF8;
+  --purple: #A78BFA;
+  --bg: #1A1A2E;
+  --card: #16213E;
+  --text: #E2E8F0;
+}
+
+body {
+  background: linear-gradient(180deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
+  min-height: 100vh;
+  font-family: 'Noto Sans SC', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === Stars Background === */
+.stars-canvas {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  pointer-events:none; z-index:0;
+}
+.star { position:absolute; background:white; border-radius:50%; animation:twinkle var(--dur) ease-in-out infinite; animation-delay: var(--del); }
+@keyframes twinkle { 0%,100%{opacity:0.3;transform:scale(1)} 50%{opacity:1;transform:scale(1.5)} }
+
+/* === Floating Islands === */
+.floating-island {
+  position: fixed; z-index:0; pointer-events:none;
+  width: 120px; height: 60px;
+  background: radial-gradient(ellipse at center, rgba(78,205,196,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+.floating-island:nth-child(1){top:10%;left:5%;animation-delay:0s}
+.floating-island:nth-child(2){top:30%;right:8%;animation-delay:2s;width:80px;height:40px}
+.floating-island:nth-child(3){bottom:20%;left:15%;animation-delay:4s;width:100px;height:50px}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+/* === Main Container === */
+.main {
+  position:relative; z-index:1;
+  max-width: 900px; margin:0 auto; padding:20px;
+}
+
+/* === Hero === */
+.hero {
+  text-align:center; padding:40px 20px 30px;
+  position:relative;
+}
+.hero-badge {
+  display:inline-block;
+  background:linear-gradient(135deg, var(--pink), var(--orange));
+  color:white; font-size:0.85em; font-weight:700;
+  padding:6px 20px; border-radius:50px;
+  letter-spacing:2px; margin-bottom:16px;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge { 0%,100%{box-shadow:0 0 0 0 rgba(255,107,157,0.4)} 50%{box-shadow:0 0 0 12px rgba(255,107,157,0)} }
+
+.hero h1 {
+  font-family:'Fredoka One', cursive;
+  font-size:3em;
+  background:linear-gradient(135deg, #FFD23F 0%, #FF8A47 50%, #FF6B9D 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-shadow:none;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.hero h1 .sub { display:block; font-size:0.45em; font-weight:700; -webkit-text-fill-color: var(--blue); font-family:'Noto Sans SC',sans-serif; }
+.hero p { color:#94A3B8; font-size:1.05em; max-width:500px; margin:0 auto; }
+
+/* === Mascot === */
+.mascot-wrap {
+  display:flex; justify-content:center; margin:10px 0;
+}
+.mascot {
+  width:80px; height:80px;
+  background:linear-gradient(135deg, var(--yellow), var(--orange));
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:2.5em;
+  animation: bounce 1.5s ease-in-out infinite;
+  box-shadow: 0 8px 30px rgba(255,138,71,0.4);
+  position:relative;
+}
+.mascot::after {
+  content:''; position:absolute;
+  width:12px; height:12px; background:white;
+  border-radius:50%; top:18px; right:20px;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 40%{transform:translateY(-15px)} 60%{transform:translateY(-5px)} }
+
+/* === Section headings === */
+.section-label {
+  display:flex; align-items:center; gap:10px; margin:40px 0 16px;
+}
+.section-label .dot { width:8px; height:8px; border-radius:50%; background:var(--pink); }
+.section-label span {
+  text-transform:uppercase; font-size:0.8em; font-weight:700;
+  color:var(--pink); letter-spacing:3px;
+}
+
+/* === Feature Cards Grid === */
+.feature-grid {
+  display:grid; grid-template-columns:repeat(3, 1fr);
+  gap:14px; margin-bottom:10px;
+}
+@media(max-width:700px){.feature-grid{grid-template-columns:repeat(2,1fr)}}
+
+.feat-card {
+  background:linear-gradient(135deg, rgba(22,33,62,0.95), rgba(30,41,80,0.9));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:20px; padding:22px 18px;
+  position:relative; overflow:hidden;
+  backdrop-filter:blur(20px);
+  transition:all 0.3s;
+}
+.feat-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(255,210,63,0.3);
+  box-shadow:0 12px 40px rgba(255,138,71,0.15);
+}
+.feat-card .icon { font-size:2.2em; margin-bottom:10px; display:block; }
+.feat-card h3 { color:#E2E8F0; font-size:1em; font-weight:700; margin-bottom:4px; }
+.feat-card p { color:#64748B; font-size:0.8em; line-height:1.5; }
+.feat-card .glow {
+  position:absolute; top:-50%; right:-50%;
+  width:150px; height:150px;
+  background:radial-gradient(circle, rgba(255,210,63,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+/* === World Map === */
+.world-map {
+  background:linear-gradient(135deg, rgba(22,33,62,0.95), rgba(30,41,80,0.9));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:24px; padding:28px;
+  position:relative; overflow:hidden;
+  backdrop-filter:blur(20px);
+}
+.world-map .title-row {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:24px;
+}
+.world-map h3 { color:white; font-size:1.2em; font-weight:900; }
+.world-map .tags { display:flex; gap:6px; }
+.world-map .tag {
+  padding:4px 12px; border-radius:20px; font-size:0.75em; font-weight:700;
+  background:rgba(255,138,71,0.15); color:var(--orange);
+}
+
+.map-path {
+  display:flex; align-items:center; gap:0; overflow-x:auto;
+  padding:10px 0;
+}
+.map-node {
+  min-width:80px; text-align:center;
+  position:relative; cursor:default;
+}
+.map-node .node-circle {
+  width:52px; height:52px; border-radius:50%;
+  margin:0 auto 6px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4em;
+  border:3px solid rgba(255,255,255,0.1);
+  transition:all 0.3s;
+}
+.map-node.done .node-circle {
+  background:linear-gradient(135deg, var(--green), #22C55E);
+  border-color:var(--green);
+  box-shadow:0 0 20px rgba(74,222,128,0.3);
+}
+.map-node.current .node-circle {
+  background:linear-gradient(135deg, var(--yellow), var(--orange));
+  border-color:var(--yellow);
+  box-shadow:0 0 24px rgba(255,210,63,0.4);
+  animation:pulse-node 2s ease-in-out infinite;
+}
+.map-node.locked .node-circle {
+  background:rgba(255,255,255,0.05);
+  border-color:rgba(255,255,255,0.05);
+  opacity:0.4;
+}
+@keyframes pulse-node { 0%,100%{box-shadow:0 0 24px rgba(255,210,63,0.4)} 50%{box-shadow:0 0 36px rgba(255,138,71,0.6)} }
+
+.map-node .node-name { color:#94A3B8; font-size:0.7em; }
+
+.map-connector {
+  width:30px; height:3px; background:rgba(255,255,255,0.08);
+  border-radius:2px; flex-shrink:0; margin-top:-26px;
+}
+.map-connector.done { background:var(--green); }
+
+/* === Subject Cards === */
+.subject-row {
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;
+  margin-bottom:30px;
+}
+@media(max-width:700px){.subject-row{grid-template-columns:repeat(2,1fr)}}
+
+.subj-card {
+  background:linear-gradient(135deg, rgba(22,33,62,0.95), rgba(30,41,80,0.9));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:18px; padding:18px;
+  text-align:center; cursor:default;
+  transition:all 0.3s; position:relative; overflow:hidden;
+}
+.subj-card:hover {
+  transform:translateY(-3px);
+  border-color:rgba(56,189,248,0.3);
+}
+.subj-card .emoji { font-size:2.4em; display:block; margin-bottom:8px; }
+.subj-card h4 { color:white; font-size:0.95em; font-weight:700; }
+.subj-card .count { color:#64748B; font-size:0.75em; margin-top:2px; }
+.subj-card .bar-bg {
+  height:4px; background:rgba(255,255,255,0.06); border-radius:2px;
+  margin-top:10px; overflow:hidden;
+}
+.subj-card .bar-fill {
+  height:100%; border-radius:2px;
+  background:linear-gradient(90deg, var(--blue), var(--purple));
+  transition:width 1s;
+}
+
+/* === Reward Showcase === */
+.reward-section {
+  background:linear-gradient(135deg, rgba(22,33,62,0.95), rgba(30,41,80,0.9));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:24px; padding:28px;
+  backdrop-filter:blur(20px);
+  margin-bottom:30px;
+}
+.reward-section h3 { color:white; font-size:1.2em; font-weight:900; margin-bottom:18px; }
+.reward-grid {
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:10px;
+}
+@media(max-width:700px){.reward-grid{grid-template-columns:repeat(3,1fr)}}
+
+.reward-item {
+  text-align:center; padding:12px 6px;
+  border-radius:16px; background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.04);
+}
+.reward-item .rew-icon { font-size:2em; display:block; margin-bottom:4px; }
+.reward-item .rew-name { color:#E2E8F0; font-size:0.75em; font-weight:600; }
+.reward-item.locked .rew-icon { filter:grayscale(1); opacity:0.3; }
+.reward-item.locked .rew-name { color:#475569; }
+
+/* === Big CTA === */
+.cta-section {
+  text-align:center; padding:20px 0 50px;
+}
+.cta-btn {
+  display:inline-block;
+  padding:16px 48px;
+  font-size:1.2em; font-weight:900;
+  color:white;
+  border-radius:50px; border:none; cursor:pointer;
+  background:linear-gradient(135deg, var(--pink), var(--orange));
+  box-shadow:0 8px 30px rgba(255,107,157,0.4);
+  transition:all 0.3s;
+  position:relative; overflow:hidden;
+  font-family:'Noto Sans SC',sans-serif;
+  letter-spacing:1px;
+}
+.cta-btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(255,107,157,0.6);
+}
+.cta-btn::after {
+  content:''; position:absolute;
+  top:-50%; left:-50%; width:200%; height:200%;
+  background:linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+  animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+
+/* === Animated Coins === */
+.coin-fall {
+  position:fixed; top:-40px; z-index:2;
+  font-size:1.8em; animation:coinDrop 3s ease-in forwards;
+  animation-delay: var(--cdel); left: var(--cl); pointer-events:none;
+}
+@keyframes coinDrop {
+  0%{transform:translateY(0) rotate(0deg); opacity:1}
+  70%{opacity:1}
+  100%{transform:translateY(100vh) rotate(var(--cr)); opacity:0}
+}
+
+/* === Design notes footer === */
+.design-notes {
+  margin:30px 0; padding:24px; border-radius:20px;
+  background:rgba(255,210,63,0.05);
+  border:1px solid rgba(255,210,63,0.12);
+  color:#94A3B8; font-size:0.8em; line-height:1.8;
+}
+.design-notes strong { color:var(--yellow); }
+
+/* === Responsive === */
+@media(max-width:600px){
+  .hero h1{font-size:2em}
+  .feature-grid{grid-template-columns:1fr}
+  .subject-row{grid-template-columns:1fr 1fr}
+  .reward-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- Stars -->
+<div class="stars-canvas" id="stars"></div>
+
+<!-- Floating islands -->
+<div class="floating-island"></div>
+<div class="floating-island"></div>
+<div class="floating-island"></div>
+
+<!-- Falling coins -->
+<div id="coins"></div>
+
+<main class="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-badge">✦ 全新设计概念 ✦</div>
+    <div class="mascot-wrap">
+      <div class="mascot">🦊</div>
+    </div>
+    <h1>
+      学习大冒险
+      <span class="sub">LEARNING ADVENTURE</span>
+    </h1>
+    <p>像玩游戏一样学习！闯关、收集、升级，让每天的练习变成最期待的时刻 🎮</p>
+  </section>
+
+  <!-- ===== 核心亮点 ===== -->
+  <div class="section-label"><div class="dot"></div><span>核心设计</span></div>
+
+  <div class="feature-grid">
+    <div class="feat-card">
+      <span class="icon">🗺️</span>
+      <h3>冒险地图</h3>
+      <p>30个关卡的世界地图，每完成练习解锁新区域</p>
+      <div class="glow"></div>
+    </div>
+    <div class="feat-card">
+      <span class="icon">🦊</span>
+      <h3>伙伴养成</h3>
+      <p>小狐狸陪你学习，答对题目喂养它长大变身</p>
+      <div class="glow"></div>
+    </div>
+    <div class="feat-card">
+      <span class="icon">💎</span>
+      <h3>宝石收集</h3>
+      <p>每道题掉宝石，集齐解锁隐藏皮肤和奖励</p>
+      <div class="glow"></div>
+    </div>
+    <div class="feat-card">
+      <span class="icon">🏆</span>
+      <h3>每日挑战</h3>
+      <p>每天3个特殊任务，完成后获得限量徽章</p>
+      <div class="glow"></div>
+    </div>
+    <div class="feat-card">
+      <span class="icon">⚡</span>
+      <h3>连击系统</h3>
+      <p>连续答对触发COMBO，分数加倍，特效全开</p>
+      <div class="glow"></div>
+    </div>
+    <div class="feat-card">
+      <span class="icon">🎨</span>
+      <h3>主题皮肤</h3>
+      <p>用宝石兑换炫酷主题皮肤：恐龙、机甲、海洋风</p>
+      <div class="glow"></div>
+    </div>
+  </div>
+
+  <!-- ===== 冒险地图 ===== -->
+  <div class="section-label"><div class="dot" style="background:#38BDF8"></div><span>冒险地图预览</span></div>
+
+  <div class="world-map">
+    <div class="title-row">
+      <h3>🗺️ 语文山脉 · 第一关</h3>
+      <div class="tags">
+        <span class="tag">7/10 已完成</span>
+      </div>
+    </div>
+    <div class="map-path">
+      <div class="map-node done">
+        <div class="node-circle">✅</div>
+        <div class="node-name">拼音村</div>
+      </div>
+      <div class="map-connector done"></div>
+      <div class="map-node done">
+        <div class="node-circle">✅</div>
+        <div class="node-name">识字林</div>
+      </div>
+      <div class="map-connector done"></div>
+      <div class="map-node current">
+        <div class="node-circle">📖</div>
+        <div class="node-name">阅读湖</div>
+      </div>
+      <div class="map-connector"></div>
+      <div class="map-node locked">
+        <div class="node-circle">🔒</div>
+        <div class="node-name">古诗塔</div>
+      </div>
+      <div class="map-connector"></div>
+      <div class="map-node locked">
+        <div class="node-circle">🔒</div>
+        <div class="node-name">作文城</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 科目世界 ===== -->
+  <div class="section-label"><div class="dot" style="background:#4ADE80"></div><span>科目世界</span></div>
+
+  <div class="subject-row">
+    <div class="subj-card">
+      <span class="emoji">📖</span><h4>语文王国</h4>
+      <div class="count">63 道题 · 5 个区域</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:45%"></div></div>
+    </div>
+    <div class="subj-card">
+      <span class="emoji">🔢</span><h4>数学迷宫</h4>
+      <div class="count">52 道题 · 4 个区域</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#38BDF8,#A78BFA)"></div></div>
+    </div>
+    <div class="subj-card">
+      <span class="emoji">🔤</span><h4>英语森林</h4>
+      <div class="count">24 道题 · 3 个区域</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#A78BFA,#FF6B9D)"></div></div>
+    </div>
+    <div class="subj-card">
+      <span class="emoji">🧪</span><h4>综合挑战</h4>
+      <div class="count">20 道题 · 2 个区域</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:10%;background:linear-gradient(90deg,#FF6B9D,#FF8A47)"></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 奖励展示 ===== -->
+  <div class="section-label"><div class="dot" style="background:#FFD23F"></div><span>可收集奖励</span></div>
+
+  <div class="reward-section">
+    <h3>🏅 徽章收集册</h3>
+    <div class="reward-grid">
+      <div class="reward-item"><span class="rew-icon">🌟</span><div class="rew-name">初次冒险</div></div>
+      <div class="reward-item"><span class="rew-icon">🔥</span><div class="rew-name">3天连击</div></div>
+      <div class="reward-item"><span class="rew-icon">⚡</span><div class="rew-name">速度之星</div></div>
+      <div class="reward-item locked"><span class="rew-icon">🦊</span><div class="rew-name">伙伴进化</div></div>
+      <div class="reward-item locked"><span class="rew-icon">💎</span><div class="rew-name">宝石猎人</div></div>
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <div class="cta-section">
+    <div class="cta-btn">🚀 开始冒险！</div>
+  </div>
+
+  <!-- ===== 设计说明 ===== -->
+  <div class="design-notes">
+    <strong>📐 设计说明：</strong><br>
+    • <strong>风格定位</strong>：游戏化冒险主题（Adventure Game UI），暗色+霓虹渐变，营造「进入游戏世界」的仪式感<br>
+    • <strong>色彩体系</strong>：深空蓝黑底色 + 粉橘黄绿蓝紫六色渐变系统，像彩虹糖果一样吸引孩子<br>
+    • <strong>核心机制</strong>：地图闯关 → 伙伴养成 → 宝石收集 → 徽章成就 → 连击奖励，五重驱动力循环<br>
+    • <strong>吉祥物</strong>：小狐狸🦊（聪明活泼，孩子喜欢的动物形象）<br>
+    • <strong>交互亮点</strong>：答对掉宝石、COMBO特效、伙伴升级动画、关卡解锁庆祝<br>
+    • <strong>目标年级</strong>：1-6年级通用，题库按年级分层，二年级为重点<br>
+    • <strong>技术</strong>：纯HTML/CSS/JS 单文件，localStorage存档，可直接打开或托管<br>
+    • <strong>状态</strong>：这是<u>设计效果图</u>，非最终产品。等待您确认方向后开始编码实现。
+  </div>
+
+</main>
+
+<script>
+// Generate stars
+(function(){
+  const c=document.getElementById('stars');
+  for(let i=0;i<80;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const size=.5+Math.random()*2.5;
+    s.style.cssText=
+      'width:'+size+'px;height:'+size+'px;'+
+      'top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;'+
+      '--dur:'+(2+Math.random()*4)+'s;--del:'+(Math.random()*3)+'s';
+    c.appendChild(s);
+  }
+})();
+
+// Falling coins
+(function(){
+  const ct=document.getElementById('coins');
+  const emojis=['💎','⭐','🪙','✨','🌟'];
+  setInterval(()=>{
+    if(ct.children.length>15) return;
+    const e=document.createElement('div');
+    e.className='coin-fall';
+    e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.cssText=
+      '--cdel:'+(Math.random()*0.5)+'s;'+
+      '--cl:'+(5+Math.random()*90)+'%;'+
+      '--cr:'+(Math.random()*720)+'deg';
+    ct.appendChild(e);
+    setTimeout(()=>e.remove(),3500);
+  },2000);
+})();
+</script>
+
+</body>
+</html>
