@@ -520,7 +520,7 @@ function endQuiz(){
   // Congratulate if did well
   if(currentQuiz.correct>=5){
     let m = document.getElementById('confirmModal');
-    m.innerHTML = '<div class="modal-content"><div class="mc-emoji">🎉</div><div class="mc-title">太棒了！</div><div class="mc-text">答对 '+currentQuiz.correct+'/'+quizQuestions.length+' 题，获得 '+currentQuiz.gemEarned+' 💎！'+((currentQuiz.combo||0)>=5?'最高'+currentQuiz.combo+'连击！':'')+'</div><button class="mc-btn primary" onclick="document.getElementById('confirmModal').classList.remove('active')">继续冒险</button></div>';
+    m.innerHTML = '<div class="modal-content"><div class="mc-emoji">🎉</div><div class="mc-title">太棒了！</div><div class="mc-text">答对 '+currentQuiz.correct+'/'+quizQuestions.length+' 题，获得 '+currentQuiz.gemEarned+' 💎！'+((currentQuiz.combo||0)>=5?'最高'+currentQuiz.combo+'连击！':'')+'</div><button class="mc-btn primary" onclick="document.getElementById(\'confirmModal\').classList.remove(\'active\')">继续冒险</button></div>';
     m.classList.add('active');
   }
 }
