@@ -329,11 +329,14 @@ function renderMap(){
   html += '<div class="map-row">';
   regions.forEach((r,i)=>{
     let cls = i<unlockedRegions ? (i===unlockedRegions-1?'unlocked current':'unlocked') : 'locked';
-    html += '<div class="map-node '+cls+'" onclick="'+((i<unlockedRegions)?'startQuizByRegion(''+r.replace(/'/g,"\'")+'')':'')+'"><div class="mn-emoji">'+(i<unlockedRegions?'🗺️':'🔒')+'</div><div class="mn-name">'+r+'</div></div>';
+    html += '<div class="map-node '+cls+'" data-region="'+r.replace(/"/g, '&quot;')+'" data-unlocked="'+(i<unlockedRegions)+'"><div class="mn-emoji">'+(i<unlockedRegions?'🗺️':'🔒')+'</div><div class="mn-name">'+r+'</div></div>';
   });
   html += '</div>';
   html += '<div style="text-align:center;font-size:.8em;color:var(--sub);margin-top:8px">答对题目解锁更多区域！</div>';
   map.innerHTML = html;
+  map.querySelectorAll('.map-node[data-unlocked="true"]').forEach(node => {
+    node.onclick = () => startQuizByRegion(node.dataset.region);
+  });
 }
 
 function startQuizByRegion(region){
