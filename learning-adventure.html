@@ -192,9 +192,9 @@ window.onerror = function(msg, url, line, col, err) {
 
   <!-- Nav -->
   <div class="nav-tabs" id="navTabs">
-    <button class="nav-tab active" onclick="switchTab('subjects')">📚 练习</button>
-    <button class="nav-tab" onclick="switchTab('map')">🗺️ 冒险</button>
-    <button class="nav-tab" onclick="switchTab('tasks')">📋 任务</button>
+    <button class="nav-tab active" onclick="switchTab(\'subjects\')">📚 练习</button>
+    <button class="nav-tab" onclick="switchTab(\'map\')">🗺️ 冒险</button>
+    <button class="nav-tab" onclick="switchTab(\'tasks\')">📋 任务</button>
   </div>
 
   <!-- Subjects Tab -->
@@ -289,7 +289,7 @@ function renderSubjects(){console.log("DEBUG", {currentGrade, qbLen: QUESTION_BA
   // Grade selector
   let gradeHtml = '<div style="grid-column:1/-1;display:flex;gap:6px;justify-content:center;margin-bottom:4px;flex-wrap:wrap">';
   allGrades.forEach(g=>{
-    gradeHtml += '<button style="padding:4px 12px;border-radius:12px;border:none;cursor:pointer;font-weight:600;font-size:.8em;'+(g===currentGrade?'background:var(--blue);color:#fff':'background:#eee;color:var(--text)')+'" onclick="setGrade('+g+')">'+g+'年级</button>';
+    gradeHtml += '<button style="padding:4px 12px;border-radius:12px;border:none;cursor:pointer;font-weight:600;font-size:.8em;'+(g===currentGrade?'background:var(--blue);color:#fff':'background:#eee;color:var(--text)')+'" onclick="setGrade(\'+g+\')">'+g+'年级</button>';
   });
   gradeHtml += '</div>';
   grid.innerHTML = gradeHtml;
@@ -383,12 +383,12 @@ function showQuiz(){
   html += '<div class="quiz-question">'+q.question+'</div>';
   
   if(q.type==='fill'){
-    html += '<div class="quiz-fill"><input type="text" id="fillAnswer" placeholder="输入你的答案..." autocomplete="off"><button class="submit-btn" onclick="submitFill('+q.id+')">确认答案 ✓</button></div>';
+    html += '<div class="quiz-fill"><input type="text" id="fillAnswer" placeholder="输入你的答案..." autocomplete="off"><button class="submit-btn" onclick="submitFill(\'+q.id+\')">确认答案 ✓</button></div>';
   } else {
     html += '<div class="quiz-options">';
     let labels = ['A','B','C','D'];
     q.options.forEach((opt,i)=>{
-      html += '<div class="quiz-opt" onclick="answerQuestion('+q.id+','+i+',this)"><span class="oi">'+labels[i]+'</span>'+opt+'</div>';
+      html += '<div class="quiz-opt" onclick="answerQuestion(\'+q.id+\',\'+i+\',this)"><span class="oi">'+labels[i]+'</span>'+opt+'</div>';
     });
     html += '</div>';
   }
@@ -520,7 +520,7 @@ function endQuiz(){
   // Congratulate if did well
   if(currentQuiz.correct>=5){
     let m = document.getElementById('confirmModal');
-    m.innerHTML = '<div class="modal-content"><div class="mc-emoji">🎉</div><div class="mc-title">太棒了！</div><div class="mc-text">答对 '+currentQuiz.correct+'/'+quizQuestions.length+' 题，获得 '+currentQuiz.gemEarned+' 💎！'+((currentQuiz.combo||0)>=5?'最高'+currentQuiz.combo+'连击！':'')+'</div><button class="mc-btn primary" onclick="document.getElementById(\'confirmModal\').classList.remove(\'active\')">继续冒险</button></div>';
+    m.innerHTML = '<div class="modal-content"><div class="mc-emoji">🎉</div><div class="mc-title">太棒了！</div><div class="mc-text">答对 '+currentQuiz.correct+'/'+quizQuestions.length+' 题，获得 '+currentQuiz.gemEarned+' 💎！'+((currentQuiz.combo||0)>=5?'最高'+currentQuiz.combo+'连击！':'')+'</div><button class="mc-btn primary" onclick="document.getElementById(\\'confirmModal\\').classList.remove(\\'active\\')">继续冒险</button></div>';
     m.classList.add('active');
   }
 }
@@ -571,7 +571,7 @@ function renderTasks(){
   list.innerHTML = DAILY_TASKS.map(t=>{
     let st = states.find(s=>s.id===t.id)||{id:t.id,progress:0,claimed:false};
     let done = st.claimed || st.progress>=t.target;
-    return '<div class="task-item'+(done?' done':'')+'"><div class="ti-emoji">'+t.emoji+'</div><div class="ti-info"><div class="ti-title">'+t.title+'</div><div class="ti-sub">'+t.desc+'</div></div><div class="ti-prog">'+Math.min(st.progress,t.target)+'/'+t.target+'</div>'+(st.claimed?'<button class="ti-claim claimed">已领</button>':(st.progress>=t.target?'<button class="ti-claim" onclick="claimTask('+t.id+')">领'+t.gemReward+'💎</button>':'<button class="ti-claim" style="background:#ddd;cursor:default">+'+t.gemReward+'💎</button>'))+'</div>';
+    return '<div class="task-item'+(done?' done':'')+'"><div class="ti-emoji">'+t.emoji+'</div><div class="ti-info"><div class="ti-title">'+t.title+'</div><div class="ti-sub">'+t.desc+'</div></div><div class="ti-prog">'+Math.min(st.progress,t.target)+'/'+t.target+'</div>'+(st.claimed?'<button class="ti-claim claimed">已领</button>':(st.progress>=t.target?'<button class="ti-claim" onclick="claimTask(\'+t.id+\')">领'+t.gemReward+'💎</button>':'<button class="ti-claim" style="background:#ddd;cursor:default">+'+t.gemReward+'💎</button>'))+'</div>';
   }).join('');
 }
 
@@ -633,16 +633,16 @@ function showBadges(){
   panel.innerHTML = '<h3>🏅 我的徽章</h3><div class="badge-grid">'+BADGE_DEFS.map(b=>{
     let un = unlockedBadges.has(b.id);
     return '<div class="badge-cell '+(un?'unlocked':'locked')+'"><div class="bi">'+b.emoji+'</div><div class="nam">'+b.name+'</div><div class="dsc">'+(un?'已解锁':'未解锁')+'</div></div>';
-  }).join('')+'</div><button class="secondary-btn" onclick="document.getElementById('badgeOverlay').classList.remove('active')">关闭</button>';
+  }).join('')+'</div><button class="secondary-btn" onclick="document.getElementById(\'badgeOverlay\').classList.remove(\'active\')">关闭</button>';
   document.getElementById('badgeOverlay').classList.add('active');
 }
 
 function showWrongBook(){
   let panel = document.getElementById('wrongPanel');
   if(wrongBook.length===0){
-    panel.innerHTML = '<h3>📝 错题本</h3><div style="text-align:center;padding:20px;color:var(--sub)">还没有错题，太厉害了！🎉</div><button class="secondary-btn" onclick="document.getElementById('wrongOverlay').classList.remove('active')">关闭</button>';
+    panel.innerHTML = '<h3>📝 错题本</h3><div style="text-align:center;padding:20px;color:var(--sub)">还没有错题，太厉害了！🎉</div><button class="secondary-btn" onclick="document.getElementById(\'wrongOverlay\').classList.remove(\'active\')">关闭</button>';
   } else {
-    panel.innerHTML = '<h3>📝 错题本 ('+wrongBook.length+'题)</h3><div class="wrong-list">'+wrongBook.slice().reverse().map(w=>'<div class="wrong-item"><div class="q">'+w.question+'</div><div class="a">✅ 正确答案：'+w.answer+'</div><div class="ua">❌ 你的答案：'+(w.userAnswer||'（无）')+'</div></div>').join('')+'</div><button class="secondary-btn" onclick="document.getElementById('wrongOverlay').classList.remove('active')">关闭</button><button class="danger-btn" onclick="clearWrongBook()">🗑️ 清空错题本</button>';
+    panel.innerHTML = '<h3>📝 错题本 ('+wrongBook.length+'题)</h3><div class="wrong-list">'+wrongBook.slice().reverse().map(w=>'<div class="wrong-item"><div class="q">'+w.question+'</div><div class="a">✅ 正确答案：'+w.answer+'</div><div class="ua">❌ 你的答案：'+(w.userAnswer||'（无）')+'</div></div>').join('')+'</div><button class="secondary-btn" onclick="document.getElementById(\'wrongOverlay\').classList.remove(\'active\')">关闭</button><button class="danger-btn" onclick="clearWrongBook()">🗑️ 清空错题本</button>';
   }
   document.getElementById('wrongOverlay').classList.add('active');
 }
@@ -657,7 +657,7 @@ function clearWrongBook(){
 
 function showSettings(){
   let panel = document.getElementById('settingsPanel');
-  panel.innerHTML = '<h3>⚙️ 设置</h3><div class="setting-row"><span class="label">🔊 音效</span><button class="toggle '+(soundOn?'on':'off')+'" onclick="toggleSound(this)"><div class="knob"></div></button></div><div class="setting-row"><span class="label">📊 统计</span><span style="font-size:.85em;color:var(--sub)">答对 '+totalCorrect+'/'+totalAnswered+' · 最高'+maxCombo+'连击</span></div><button class="secondary-btn" onclick="document.getElementById('settingsOverlay').classList.remove('active')">关闭</button><button class="danger-btn" onclick="resetAll()">🔄 重置所有进度</button>';
+  panel.innerHTML = '<h3>⚙️ 设置</h3><div class="setting-row"><span class="label">🔊 音效</span><button class="toggle '+(soundOn?'on':'off')+'" onclick="toggleSound(this)"><div class="knob"></div></button></div><div class="setting-row"><span class="label">📊 统计</span><span style="font-size:.85em;color:var(--sub)">答对 '+totalCorrect+'/'+totalAnswered+' · 最高'+maxCombo+'连击</span></div><button class="secondary-btn" onclick="document.getElementById(\'settingsOverlay\').classList.remove(\'active\')">关闭</button><button class="danger-btn" onclick="resetAll()">🔄 重置所有进度</button>';
   document.getElementById('settingsOverlay').classList.add('active');
 }
 
@@ -669,7 +669,7 @@ function toggleSound(btn){
 
 function resetAll(){
   let m = document.getElementById('confirmModal');
-  m.innerHTML = '<div class="modal-content"><div class="mc-emoji">⚠️</div><div class="mc-title">确认重置？</div><div class="mc-text">所有进度将被清除，无法恢复！</div><button class="mc-btn secondary" onclick="document.getElementById('confirmModal').classList.remove('active')">取消</button><button class="mc-btn danger" onclick="doReset()">确认重置</button></div>';
+  m.innerHTML = '<div class="modal-content"><div class="mc-emoji">⚠️</div><div class="mc-title">确认重置？</div><div class="mc-text">所有进度将被清除，无法恢复！</div><button class="mc-btn secondary" onclick="document.getElementById(\'confirmModal\').classList.remove(\'active\')">取消</button><button class="mc-btn danger" onclick="doReset()">确认重置</button></div>';
   m.classList.add('active');
 }
 
