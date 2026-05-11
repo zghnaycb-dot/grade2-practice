@@ -265,7 +265,7 @@ function updateTopbar(){
   document.getElementById('gemCount').textContent = gems;
 }
 
-function renderSubjects(){
+function renderSubjects(){console.log("DEBUG", {currentGrade, qbLen: QUESTION_BANK?.length, sampleGrade: QUESTION_BANK?.[0]?.grade});
   let grid = document.getElementById('subjectGrid');
   let allGrades = [...new Set(QUESTION_BANK.map(q=>q.grade))].sort();
   let subs = [
@@ -284,7 +284,7 @@ function renderSubjects(){
   grid.innerHTML = gradeHtml;
   
   subs.forEach(s=>{
-    let qs = s.id==='all' ? QUESTION_BANK.filter(q=>q.grade===currentGrade) : QUESTION_BANK.filter(q=>q.subject===s.id && q.grade===currentGrade);
+    let qs = s.id==='all' ? QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)) : QUESTION_BANK.filter(q=>q.subject===s.id && parseInt(q.grade)===parseInt(currentGrade));
     let card = document.createElement('div');
     card.className = 'sub-card';
     card.style.setProperty('--bc', s.bc);
@@ -294,7 +294,7 @@ function renderSubjects(){
   });
   
   // Show total count
-  let total = QUESTION_BANK.filter(q=>q.grade===currentGrade).length;
+  let total = QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)).length;
   let info = document.createElement('div');
   info.style.cssText = 'grid-column:1/-1;text-align:center;font-size:.8em;color:var(--sub);margin-top:4px';
   info.textContent = currentGrade+'年级共 '+total+' 道题';
@@ -302,14 +302,14 @@ function renderSubjects(){
 }
 
 function setGrade(g){
-  currentGrade = g;
+  currentGrade = parseInt(g)||2;
   renderSubjects();
   renderMap();
 }
 
 function renderMap(){
   let map = document.getElementById('mapArea');
-  let regions = [...new Set(QUESTION_BANK.filter(q=>q.grade===currentGrade).map(q=>q.region).filter(Boolean))];
+  let regions = [...new Set(QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)).map(q=>q.region).filter(Boolean))];
   if(regions.length===0) regions = ['练习区'];
   
   let unlockedRegions = Math.min(regions.length, Math.ceil(totalCorrect/5)+1);
@@ -326,15 +326,15 @@ function renderMap(){
 }
 
 function startQuizByRegion(region){
-  let qs = QUESTION_BANK.filter(q=>q.grade===currentGrade && q.region===region);
+  let qs = QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade) && q.region===region);
   if(qs.length===0) return;
   startQuizSession(qs);
 }
 
 function startQuiz(subject){
   let qs = subject==='all' ? 
-    QUESTION_BANK.filter(q=>q.grade===currentGrade) :
-    QUESTION_BANK.filter(q=>q.subject===subject && q.grade===currentGrade);
+    QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)) :
+    QUESTION_BANK.filter(q=>q.subject===subject && parseInt(q.grade)===parseInt(currentGrade));
   if(qs.length===0){ alert('当前年级暂无该科目题目！'); return; }
   startQuizSession(qs);
 }
