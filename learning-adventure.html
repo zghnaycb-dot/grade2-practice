@@ -2,760 +2,645 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>🦊 学习大冒险</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习大冒险</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--pink:#FF5E8A;--orange:#FF7B3D;--yellow:#FFC107;--green:#2ECC71;--blue:#3498DB;--purple:#9B59B6;--card:#FFF;--text:#2C3E50;--sub:#7F8C8D;--border:#F0F0F0}
-body{background:linear-gradient(180deg,#E8F4FD 0%,#FFF5F5 30%,#FFFDE7 60%,#F0FFF4 100%);min-height:100vh;font-family:'Noto Sans SC',sans-serif;overflow-x:hidden}
-body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:url('school-bg.png') no-repeat center top / contain;opacity:.06;pointer-events:none;z-index:0}
-.clouds{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.cloud{position:absolute;background:#fff;border-radius:50%;box-shadow:0 8px 30px rgba(0,0,0,.04);opacity:.7;animation:fc var(--d) ease-in-out infinite;animation-delay:var(--dl)}
-@keyframes fc{0%,100%{transform:translateX(0)}50%{transform:translateX(var(--dx))}}
-.float-e{position:fixed;pointer-events:none;z-index:0;font-size:1.2em;animation:fu 4s ease-in-out infinite;animation-delay:var(--dl)}
-@keyframes fu{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(-20px);opacity:1}}
-.container{max-width:500px;margin:0 auto;padding:12px 16px 100px;position:relative;z-index:1}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 0;margin-bottom:8px}
-.topbar .gems{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-radius:20px;padding:6px 14px;font-weight:700;color:#2C3E50;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.topbar .gems .gicon{font-size:1.3em;animation:gemBounce 2s ease-in-out infinite}
-@keyframes gemBounce{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
-.topbar .actions{display:flex;gap:6px}
-.topbar .btn-s{width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.85);font-size:1.2em;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 2px 8px rgba(0,0,0,.06);transition:all .2s}
-.topbar .btn-s:active{transform:scale(.9);background:#f0f0f0}
-.main-title{text-align:center;margin:16px 0 4px}
-.main-title h1{font-size:1.8em;font-weight:900;background:linear-gradient(135deg,#FF5E8A,#FF7B3D);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:'Fredoka One',cursive}
-.main-title .sub{font-size:.85em;color:var(--sub);margin-top:2px}
-.pet-area{text-align:center;margin:8px 0;position:relative}
-.pet-container{display:inline-block;cursor:pointer;position:relative;transition:transform .3s}
-.pet-container:active{transform:scale(.9)}
-.pet-fox{font-size:4em;transition:all .3s}
-.pet-name{font-weight:700;color:var(--text);font-size:.9em;margin-top:2px}
-.pet-lvl{font-size:.75em;color:var(--sub)}
-.pet-exp{width:120px;height:6px;background:#eee;border-radius:3px;margin:4px auto;overflow:hidden}
-.pet-exp-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--pink));border-radius:3px;transition:width .5s}
-.float-gem{position:absolute;font-size:1.5em;animation:fg .8s ease-out forwards;pointer-events:none}
-@keyframes fg{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-60px) scale(.5)}}
-.subject-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
-.sub-card{background:var(--card);border-radius:16px;padding:16px;text-align:center;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.06);border:2px solid transparent;border-top:4px solid var(--bc);transition:all .25s;position:relative;overflow:hidden}
-.sub-card:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.1);border-color:var(--bc)}
-.sub-card:active{transform:scale(.97)}
-.sub-card .icon{font-size:2.5em;margin-bottom:6px}
-.sub-card .name{font-weight:700;font-size:1.1em;color:var(--text)}
-.sub-card .count{font-size:.8em;color:var(--sub);margin-top:2px}
-.section-title{font-weight:700;font-size:1.1em;color:var(--text);margin:16px 0 8px;display:flex;align-items:center;gap:6px}
-.task-list{display:flex;flex-direction:column;gap:8px}
-.task-item{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:all .2s}
-.task-item.done{opacity:.5}
-.task-item .ti-emoji{font-size:1.5em;flex-shrink:0}
-.task-item .ti-info{flex:1}
-.task-item .ti-title{font-weight:600;font-size:.9em;color:var(--text)}
-.task-item .ti-sub{font-size:.75em;color:var(--sub)}
-.task-item .ti-prog{font-size:.8em;color:var(--blue);font-weight:600}
-.task-item .ti-claim{padding:5px 12px;border-radius:12px;border:none;background:var(--yellow);color:#fff;font-weight:700;font-size:.8em;cursor:pointer;transition:all .2s;white-space:nowrap}
-.task-item .ti-claim:active{transform:scale(.9)}
-.task-item .ti-claim.claimed{background:#ccc;cursor:default}
-.quiz-screen{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:100;flex-direction:column;align-items:center;justify-content:center;padding:16px}
-.quiz-screen.active{display:flex}
-.quiz-card{background:#fff;border-radius:20px;padding:24px;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.15);position:relative;animation:slideUp .3s ease-out}
-@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
-.quiz-close{position:absolute;top:12px;right:14px;font-size:1.5em;cursor:pointer;color:#ccc;z-index:2;background:none;border:none}
-.quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.quiz-tag{font-size:.8em;padding:4px 10px;border-radius:10px;font-weight:600}
-.quiz-tag.chinese{background:#FFF0F0;color:#FF5E8A}
-.quiz-tag.math{background:#F0F5FF;color:#3498DB}
-.quiz-tag.english{background:#F0FFF4;color:#2ECC71}
-.quiz-tag.general{background:#FFF8F0;color:#FF7B3D}
-.quiz-combo{display:flex;align-items:center;gap:3px;font-size:.85em;font-weight:700;color:var(--orange)}
-.quiz-qnum{font-size:.75em;color:var(--sub)}
-.quiz-progress{height:4px;background:#eee;border-radius:2px;margin-bottom:16px;overflow:hidden}
-.quiz-progress .fill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));transition:width .4s}
-.q-area{font-size:.75em;color:var(--sub);margin-bottom:4px}
-.quiz-question{font-size:1.15em;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.6}
-.quiz-options{display:flex;flex-direction:column;gap:8px}
-.quiz-opt{padding:12px 16px;border-radius:12px;border:2px solid var(--border);background:#fff;font-size:.95em;text-align:left;cursor:pointer;transition:all .2s;color:var(--text);display:flex;align-items:center;gap:10px}
-.quiz-opt:active{transform:scale(.98)}
-.quiz-opt:hover{border-color:var(--blue);background:#F0F8FF}
-.quiz-opt.correct{border-color:var(--green)!important;background:#E8F8F0!important;animation:pop .3s}
-.quiz-opt.wrong{border-color:var(--pink)!important;background:#FFF0F0!important;animation:shake .4s}
-.quiz-opt .oi{width:26px;height:26px;border-radius:50%;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85em;flex-shrink:0}
-@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-.quiz-fill{display:flex;gap:8px;flex-direction:column}
-.quiz-fill input{width:100%;padding:12px 16px;border-radius:12px;border:2px solid var(--border);font-size:1em;outline:none;transition:all .2s;color:var(--text);font-family:inherit}
-.quiz-fill input:focus{border-color:var(--blue)}
-.quiz-fill .submit-btn{width:100%;padding:12px;border-radius:12px;border:none;background:var(--blue);color:#fff;font-weight:700;font-size:1em;cursor:pointer;transition:all .2s;margin-top:4px}
-.quiz-fill .submit-btn:active{transform:scale(.97);opacity:.9}
-.quiz-feedback{text-align:center;padding:8px;font-weight:700;font-size:.95em;display:none}
-.quiz-feedback.show{display:block}
-.quiz-feedback.correct{color:var(--green)}
-.quiz-feedback.wrong{color:var(--pink)}
-.quiz-combo-pop{position:absolute;font-size:1.5em;font-weight:900;pointer-events:none;animation:comboPop .8s ease-out forwards}
-@keyframes comboPop{0%{transform:scale(0);opacity:1}50%{transform:scale(1.5);opacity:.8}100%{transform:scale(2);opacity:0}}
-.badge-toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:20px;padding:24px 32px;z-index:200;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2);animation:bt .4s ease-out}
-@keyframes bt{from{transform:translate(-50%,-50%) scale(0);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
-.badge-toast .be{font-size:4em;margin-bottom:8px}
-.badge-toast .bn{font-weight:900;font-size:1.2em;color:var(--text)}
-.badge-toast .bd{font-size:.85em;color:var(--sub);margin-top:4px}
-.badge-toast .bok{margin-top:12px;padding:8px 24px;border-radius:14px;border:none;background:var(--yellow);color:#fff;font-weight:700;cursor:pointer}
-.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:150}
-.overlay.active{display:flex;align-items:center;justify-content:center;padding:16px}
-.panel{background:#fff;border-radius:20px;padding:20px;width:100%;max-width:400px;max-height:85vh;overflow-y:auto;animation:slideUp .3s ease-out}
-.panel h3{font-size:1.2em;margin-bottom:14px;color:var(--text);text-align:center}
-.panel .close{float:right;font-size:1.3em;cursor:pointer;background:none;border:none;color:#ccc}
-.badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.badge-cell{text-align:center;padding:12px;border-radius:14px;border:2px solid var(--border);transition:all .2s}
-.badge-cell.unlocked{border-color:var(--yellow);background:#FFFDE7}
-.badge-cell.locked{opacity:.4}
-.badge-cell .bi{font-size:2.5em;margin-bottom:4px}
-.badge-cell .nam{font-weight:700;font-size:.85em;color:var(--text)}
-.badge-cell .dsc{font-size:.7em;color:var(--sub)}
-.wrong-list{display:flex;flex-direction:column;gap:8px;max-height:50vh;overflow-y:auto}
-.wrong-item{background:#FFF0F0;border-radius:12px;padding:12px;border:1px solid #FFCDD2}
-.wrong-item .q{font-weight:600;color:var(--text);font-size:.9em}
-.wrong-item .a{font-size:.8em;color:var(--green);margin-top:4px}
-.wrong-item .ua{font-size:.8em;color:var(--pink);margin-top:2px}
-.setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
-.setting-row .label{font-weight:500;color:var(--text)}
-.toggle{width:50px;height:28px;border-radius:14px;border:none;cursor:pointer;position:relative;transition:background .3s}
-.toggle.on{background:var(--green)}
-.toggle.off{background:#ccc}
-.toggle .knob{position:absolute;top:3px;width:22px;height:22px;background:#fff;border-radius:50%;transition:left .3s;box-shadow:0 2px 4px rgba(0,0,0,.15)}
-.toggle.on .knob{left:25px}
-.toggle.off .knob{left:3px}
-.danger-btn{width:100%;padding:10px;border-radius:12px;border:none;background:#FF4444;color:#fff;font-weight:700;cursor:pointer;margin:8px 0}
-.secondary-btn{width:100%;padding:10px;border-radius:12px;border:none;background:var(--sub);color:#fff;font-weight:600;cursor:pointer;margin:4px 0}
-.map-area{margin:12px 0}
-.map-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
-.map-node{flex:1;min-width:80px;padding:12px 8px;border-radius:14px;text-align:center;cursor:pointer;border:2px solid var(--border);background:#fff;transition:all .2s}
-.map-node.unlocked{border-color:var(--green);background:#F0FFF4}
-.map-node.locked{opacity:.5;cursor:not-allowed}
-.map-node.current{border-color:var(--blue);background:#F0F8FF;animation:pulse 2s infinite}
-.map-node .mn-emoji{font-size:1.5em}
-.map-node .mn-name{font-size:.75em;font-weight:600;color:var(--text);margin-top:2px}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,152,219,.3)}50%{box-shadow:0 0 0 8px rgba(52,152,219,0)}}
-.nav-tabs{display:flex;gap:4px;margin-bottom:12px;background:#f5f5f5;border-radius:12px;padding:4px}
-.nav-tab{flex:1;padding:8px;text-align:center;border-radius:10px;cursor:pointer;font-weight:600;font-size:.85em;color:var(--sub);transition:all .2s;border:none;background:none}
-.nav-tab.active{background:#fff;color:var(--text);box-shadow:0 2px 4px rgba(0,0,0,.08)}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:160;flex-direction:column;align-items:center;justify-content:center;padding:16px}
-.modal.active{display:flex}
-.modal-content{background:#fff;border-radius:20px;padding:24px;width:100%;max-width:380px;text-align:center;animation:slideUp .3s ease-out}
-.modal-content .mc-emoji{font-size:3em;margin-bottom:8px}
-.modal-content .mc-title{font-weight:900;font-size:1.2em;color:var(--text)}
-.modal-content .mc-text{color:var(--sub);margin:8px 0 14px;font-size:.9em}
-.modal-content .mc-btn{padding:10px 28px;border-radius:14px;border:none;font-weight:700;cursor:pointer;font-size:.95em;margin:4px}
-.modal-content .mc-btn.primary{background:var(--blue);color:#fff}
-.modal-content .mc-btn.danger{background:var(--pink);color:#fff}
-.modal-content .mc-btn.secondary{background:#eee;color:var(--text)}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 30px 0;
+  color: white;
+}
+.header h1 {
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+}
+.header p { font-size: 1.1em; opacity: 0.9; }
+
+/* Stats Bar */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.stat-item {
+  background: rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.95em;
+}
+
+/* Navigation */
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.nav-tab {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s;
+}
+.nav-tab:hover { background: rgba(255,255,255,0.3); }
+.nav-tab.active { background: white; color: #667eea; }
+
+/* Content Area */
+.content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  min-height: 400px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* Subject Cards */
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.subject-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.subject-card.chinese { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.subject-card.math { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+.subject-card.english { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+.subject-icon { font-size: 3em; margin-bottom: 10px; }
+.subject-card h3 { font-size: 1.3em; margin-bottom: 5px; }
+
+/* Grade Selector */
+.grade-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.grade-btn {
+  padding: 8px 16px;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.grade-btn:hover, .grade-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+/* Quiz Area */
+.quiz-container { max-width: 600px; margin: 0 auto; }
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #eee;
+}
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+.question-box {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+.question-text {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.options-list { display: flex; flex-direction: column; gap: 12px; }
+.option-btn {
+  padding: 15px 20px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1em;
+  transition: all 0.3s;
+}
+.option-btn:hover { border-color: #667eea; background: #f0f4ff; }
+.option-btn.correct { border-color: #4caf50; background: #e8f5e9; }
+.option-btn.wrong { border-color: #f44336; background: #ffebee; }
+
+/* Result Screen */
+.result-screen { text-align: center; padding: 40px 20px; }
+.result-score { font-size: 4em; color: #667eea; margin: 20px 0; }
+.result-message { font-size: 1.2em; color: #666; margin-bottom: 30px; }
+.btn-primary {
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.btn-primary:hover { transform: scale(1.05); }
+
+/* Badge Collection */
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+.badge-item {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+.badge-item:hover { transform: scale(1.05); }
+.badge-item.locked { opacity: 0.4; }
+.badge-icon { font-size: 3em; margin-bottom: 10px; }
+.badge-name { font-size: 0.9em; color: #666; }
+
+/* Map View */
+.map-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+.map-node {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+.map-node.completed { background: #4caf50; color: white; }
+.map-node.current { background: #ff9800; color: white; animation: pulse 2s infinite; }
+.map-node.locked { background: #e0e0e0; color: #999; }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Settings */
+.settings-section { margin-bottom: 25px; }
+.settings-section h3 { margin-bottom: 15px; color: #667eea; }
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+.toggle-switch {
+  width: 50px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 13px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.toggle-switch.active { background: #667eea; }
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+.toggle-switch.active::after { left: 26px; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.5s ease-out; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.8em; }
+  .subject-grid { grid-template-columns: 1fr; }
+  .map-container { grid-template-columns: repeat(2, 1fr); }
+  .content { padding: 20px; }
+}
 </style>
 </head>
 <body>
-<div id="errorDisplay" style="display:none;background:#ff4444;color:white;padding:10px;margin:10px;border-radius:8px;font-size:14px;z-index:9999;position:relative;"></div>
+<div class="container">
+  <div class="header">
+    <h1>🚀 学习大冒险</h1>
+    <p>探索知识的宇宙，收集智慧徽章！</p>
+  </div>
+  
+  <div class="stats-bar">
+    <div class="stat-item">⭐ 等级: <span id="level">1</span></div>
+    <div class="stat-item">💎 积分: <span id="points">0</span></div>
+    <div class="stat-item">🏆 徽章: <span id="badgeCount">0</span>/10</div>
+    <div class="stat-item">📚 已完成: <span id="completed">0</span>题</div>
+  </div>
+  
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showTab('subjects')">📚 科目选择</button>
+    <button class="nav-tab" onclick="showTab('map')">🗺️ 冒险地图</button>
+    <button class="nav-tab" onclick="showTab('badges')">🏅 徽章墙</button>
+    <button class="nav-tab" onclick="showTab('settings')">⚙️ 设置</button>
+  </div>
+  
+  <div class="content" id="content">
+    <!-- Dynamic content -->
+  </div>
+</div>
+
 <script>
-window.onerror = function(msg, url, line, col, err) {
-  var d = document.getElementById('errorDisplay');
-  if(d) { d.style.display='block'; d.innerHTML = '<b>JS Error:</b> ' + msg + ' (line ' + line + ')'; }
-  console.error('Error:', msg, 'at line', line);
+// Question Bank
+const QUESTIONS = [{"id": 1, "subject": "chinese", "grade": 1, "type": "choice", "question": "「春」字的第一笔是？", "options": ["横", "竖", "撇", "点"], "answer": 2, "region": "拼音村"}, {"id": 2, "subject": "chinese", "grade": 1, "type": "choice", "question": "「山」字有几笔？", "options": ["1笔", "2笔", "3笔", "4笔"], "answer": 2, "region": "拼音村"}, {"id": 3, "subject": "chinese", "grade": 1, "type": "choice", "question": "下面哪个是「日」字的读音？", "options": ["rì", "yuè", "xīng", "tiān"], "answer": 0, "region": "拼音村"}, {"id": 4, "subject": "chinese", "grade": 1, "type": "fill", "question": "「大」字的笔画是____画。", "answer": "3", "region": "拼音村"}, {"id": 5, "subject": "chinese", "grade": 2, "type": "choice", "question": "「歌」字的部首是？", "options": ["欠", "口", "可", "彳"], "answer": 1, "region": "拼音村"}, {"id": 6, "subject": "chinese", "grade": 2, "type": "choice", "question": "「春」字的意思不包括？", "options": ["春天", "季节", "天气", "冬天"], "answer": 3, "region": "拼音村"}, {"id": 7, "subject": "chinese", "grade": 2, "type": "choice", "question": "「欢」字有几笔？", "options": ["4笔", "5笔", "6笔", "7笔"], "answer": 2, "region": "拼音村"}, {"id": 8, "subject": "chinese", "grade": 2, "type": "choice", "question": "「柳」字的特点是？", "options": ["左窄右宽", "左宽右窄", "左右相等", "上下结构"], "answer": 0, "region": "识字林"}, {"id": 9, "subject": "chinese", "grade": 2, "type": "choice", "question": "「梅花」的「梅」读作？", "options": ["méi", "mēi", "mèi", "mì"], "answer": 0, "region": "识字林"}, {"id": 10, "subject": "chinese", "grade": 2, "type": "fill", "question": "「春眠不觉晓，处处闻啼鸟，夜来风雨声，____知多少。」", "answer": "花落", "region": "古诗塔"}, {"id": 11, "subject": "chinese", "grade": 2, "type": "choice", "question": "「碧」字的意思是？", "options": ["绿色", "白色", "蓝色", "青绿色"], "answer": 3, "region": "识字林"}, {"id": 12, "subject": "chinese", "grade": 2, "type": "choice", "question": "下面哪个词语中「地」读轻声？", "options": ["土地", "慢慢地", "天地", "地面"], "answer": 1, "region": "识字林"}, {"id": 13, "subject": "chinese", "grade": 2, "type": "choice", "question": "「小蝌蚪找妈妈」是一篇？", "options": ["诗歌", "童话故事", "日记", "寓言"], "answer": 1, "region": "阅读湖"}, {"id": 14, "subject": "chinese", "grade": 2, "type": "choice", "question": "「露」字在「露珠」中读？", "options": ["lòu", "lù", "lǜ", "luò"], "answer": 1, "region": "拼音村"}, {"id": 15, "subject": "chinese", "grade": 2, "type": "choice", "question": "「神」字的偏旁是？", "options": ["礻", "衤", "讠", "阝"], "answer": 0, "region": "识字林"}, {"id": 16, "subject": "chinese", "grade": 2, "type": "fill", "question": "「______，二月春风似剪刀。」", "answer": "碧玉妆成一树高", "region": "古诗塔"}, {"id": 17, "subject": "chinese", "grade": 2, "type": "choice", "question": "「跳」字用音序查字法应先查？", "options": ["T", "t", "ti", "d"], "answer": 0, "region": "拼音村"}, {"id": 18, "subject": "chinese", "grade": 2, "type": "choice", "question": "「村」字的意思是？", "options": ["城市", "农村", "山", "水"], "answer": 1, "region": "识字林"}, {"id": 19, "subject": "chinese", "grade": 2, "type": "choice", "question": "「枫」字和什么有关？", "options": ["松树", "柳树", "枫树", "杨树"], "answer": 2, "region": "识字林"}, {"id": 20, "subject": "chinese", "grade": 2, "type": "choice", "question": "「飞」字有几笔？", "options": ["2笔", "3笔", "4笔", "5笔"], "answer": 1, "region": "拼音村"}, {"id": 21, "subject": "chinese", "grade": 2, "type": "choice", "question": "「春天」不是描写春天的词语是？", "options": ["春暖花开", "春回大地", "秋高气爽", "万物复苏"], "answer": 2, "region": "阅读湖"}, {"id": 22, "subject": "chinese", "grade": 2, "type": "choice", "question": "「儿童急走追黄蝶」下一句是？", "options": ["飞入菜花无处寻", "春江水暖鸭先知", "忙趁东风放纸鸢", "碧玉妆成一树高"], "answer": 0, "region": "古诗塔"}, {"id": 23, "subject": "chinese", "grade": 2, "type": "choice", "question": "「宿」字在「住宿」中读？", "options": ["sù", "xiǔ", "xù", "shù"], "answer": 0, "region": "拼音村"}, {"id": 24, "subject": "chinese", "grade": 2, "type": "fill", "question": "「两个黄鹂鸣翠柳，________。」", "answer": "一行白鹭上青天", "region": "古诗塔"}, {"id": 25, "subject": "chinese", "grade": 2, "type": "choice", "question": "「青」字可以组成？", "options": ["青山 青草 青天", "青草 青色 青蛙", "以上均可", "以上都不对"], "answer": 2, "region": "识字林"}, {"id": 26, "subject": "chinese", "grade": 2, "type": "choice", "question": "「岭」字的意思是？", "options": ["山峰", "大海", "森林", "河流"], "answer": 0, "region": "识字林"}, {"id": 27, "subject": "chinese", "grade": 2, "type": "choice", "question": "「含」字的结构是？", "options": ["上下结构", "上中下结构", "左右结构", "半包围结构"], "answer": 1, "region": "识字林"}, {"id": 28, "subject": "chinese", "grade": 2, "type": "choice", "question": "「春晓」的「晓」意思是？", "options": ["早上", "晚上", "中午", "春天"], "answer": 0, "region": "古诗塔"}, {"id": 29, "subject": "chinese", "grade": 2, "type": "choice", "question": "「岭」字的大写字母是？", "options": ["L", "N", "M", "G"], "answer": 0, "region": "拼音村"}, {"id": 30, "subject": "chinese", "grade": 2, "type": "choice", "question": "下列词语全是轻声词的是？", "options": ["妈妈 爸爸 哥哥", "桌子 椅子 兔子", "爷爷 奶奶 弟弟", "妈妈 石头 地方"], "answer": 1, "region": "识字林"}, {"id": 51, "subject": "english", "grade": 2, "type": "choice", "question": "“one”的汉语意思是？", "options": ["二", "三", "四", "一"], "answer": 3, "region": "英语森林"}, {"id": 52, "subject": "english", "grade": 2, "type": "choice", "question": "“cat”是什么动物？", "options": ["狗", "猫", "鸟", "鱼"], "answer": 1, "region": "英语森林"}, {"id": 53, "subject": "english", "grade": 2, "type": "choice", "question": "“red”是什么颜色？", "options": ["蓝色", "绿色", "红色", "黄色"], "answer": 2, "region": "英语森林"}, {"id": 54, "subject": "english", "grade": 2, "type": "choice", "question": "“five”对应数字几？", "options": ["4", "5", "6", "7"], "answer": 1, "region": "英语森林"}, {"id": 55, "subject": "english", "grade": 2, "type": "fill", "question": "“three”对应数字____。", "answer": "3", "region": "英语森林"}, {"id": 56, "subject": "english", "grade": 2, "type": "choice", "question": "“yellow”是什么颜色？", "options": ["红色", "蓝色", "黄色", "绿色"], "answer": 2, "region": "英语森林"}, {"id": 57, "subject": "english", "grade": 2, "type": "choice", "question": "“dog”翻译成汉语是？", "options": ["猫", "狗", "鸟", "鱼"], "answer": 1, "region": "英语森林"}, {"id": 58, "subject": "english", "grade": 2, "type": "choice", "question": "“book”的复数形式是？", "options": ["bookes", "books", "bookies", "book's"], "answer": 1, "region": "英语森林"}, {"id": 59, "subject": "english", "grade": 2, "type": "choice", "question": "“sun”是什么？", "options": ["月亮", "星星", "太阳", "地球"], "answer": 2, "region": "英语森林"}, {"id": 60, "subject": "english", "grade": 2, "type": "fill", "question": "I am a ____。（填写动物：狗的英语单词）", "answer": "dog", "region": "英语森林"}, {"id": 31, "subject": "math", "grade": 2, "type": "choice", "question": "15+27=？", "options": ["41", "42", "43", "44"], "answer": 1, "region": "数学迷宫"}, {"id": 32, "subject": "math", "grade": 2, "type": "choice", "question": "一个三角尺有几个角？", "options": ["2", "3", "4", "5"], "answer": 1, "region": "数学迷宫"}, {"id": 33, "subject": "math", "grade": 2, "type": "choice", "question": "3×7=？", "options": ["18", "21", "24", "27"], "answer": 1, "region": "数学迷宫"}, {"id": 34, "subject": "math", "grade": 2, "type": "fill", "question": "45 - ____ = 18", "answer": "27", "region": "数学迷宫"}, {"id": 35, "subject": "math", "grade": 2, "type": "choice", "question": "从镜子中看到数字「2」，实际是？", "options": ["2", "3", "5", "无法判断"], "answer": 2, "region": "数学迷宫"}, {"id": 36, "subject": "math", "grade": 2, "type": "choice", "question": "()×4=12，括号里填？", "options": ["2", "3", "4", "5"], "answer": 1, "region": "数学迷宫"}, {"id": 37, "subject": "math", "grade": 2, "type": "choice", "question": "100厘米=____米", "options": ["1", "10", "100", "0.1"], "answer": 0, "region": "数学迷宫"}, {"id": 38, "subject": "math", "grade": 2, "type": "choice", "question": "钟面上分针走一圈，时针走？", "options": ["1大格", "1小格", "不动", "2大格"], "answer": 0, "region": "数学迷宫"}, {"id": 39, "subject": "math", "grade": 2, "type": "choice", "question": "小明有18颗糖，小红比小明多9颗，小红有？", "options": ["26颗", "27颗", "28颗", "25颗"], "answer": 1, "region": "数学迷宫"}, {"id": 40, "subject": "math", "grade": 2, "type": "choice", "question": "()-15=30，括号里填？", "options": ["35", "45", "40", "50"], "answer": 1, "region": "数学迷宫"}, {"id": 41, "subject": "math", "grade": 2, "type": "choice", "question": "用3、0、8三张卡片摆三位数，可以摆出几个？", "options": ["2个", "3个", "4个", "5个"], "answer": 2, "region": "数学迷宫"}, {"id": 42, "subject": "math", "grade": 2, "type": "fill", "question": "8×____=56", "answer": "7", "region": "数学迷宫"}, {"id": 43, "subject": "math", "grade": 2, "type": "choice", "question": "一个西瓜平均切成8块，小明吃了3块，还剩？", "options": ["4块", "5块", "6块", "3块"], "answer": 1, "region": "数学迷宫"}, {"id": 44, "subject": "math", "grade": 2, "type": "choice", "question": "从1数到100，单数一共多少个？", "options": ["48个", "49个", "50个", "51个"], "answer": 2, "region": "数学迷宫"}, {"id": 45, "subject": "math", "grade": 2, "type": "choice", "question": "_×5<20，括号里最大能填几？", "options": ["2", "3", "4", "5"], "answer": 1, "region": "数学迷宫"}, {"id": 46, "subject": "math", "grade": 2, "type": "choice", "question": "小红排队做操，她前面有8人，后面有7人，一共多少人？", "options": ["14人", "15人", "16人", "17人"], "answer": 1, "region": "数学迷宫"}, {"id": 47, "subject": "math", "grade": 2, "type": "fill", "question": "63 ÷ ____ = 9", "answer": "7", "region": "数学迷宫"}, {"id": 48, "subject": "math", "grade": 2, "type": "choice", "question": "正方形有几条对称轴？", "options": ["1条", "2条", "3条", "4条"], "answer": 3, "region": "数学迷宫"}, {"id": 49, "subject": "math", "grade": 2, "type": "choice", "question": "8×8-8=？", "options": ["56", "64", "48", "72"], "answer": 0, "region": "数学迷宫"}, {"id": 50, "subject": "math", "grade": 2, "type": "choice", "question": "下面图形中哪些是对称图形？", "options": ["只有正方形", "只有长方形", "正方形和长方形", "圆形"], "answer": 2, "region": "数学迷宫"}, {"id": 101, "subject": "chinese", "grade": 3, "type": "choice", "question": "「早晨」的「晨」字共有几画？", "options": ["10画", "11画", "12画", "13画"], "answer": 1, "region": "识字城堡"}, {"id": 102, "subject": "chinese", "grade": 3, "type": "choice", "question": "下面哪个字的读音是「zhì」？", "options": ["知", "智", "志", "置"], "answer": 2, "region": "拼音村"}, {"id": 103, "subject": "chinese", "grade": 3, "type": "fill", "question": "《咏柳》中「碧玉妆成______，二月春风似剪刀。」", "answer": "一树高", "region": "古诗塔"}, {"id": 104, "subject": "chinese", "grade": 3, "type": "choice", "question": "「荷花」一课中，荷花的香味是？", "options": ["清香", "浓香", "微香", "无味"], "answer": 0, "region": "阅读湖"}, {"id": 105, "subject": "chinese", "grade": 3, "type": "choice", "question": "「池塘」中「塘」的偏旁是？", "options": ["土", "氵", "广", "口"], "answer": 1, "region": "识字城堡"}, {"id": 106, "subject": "chinese", "grade": 3, "type": "fill", "question": "成语「千里之行，始于足下」的意思是人要走千里远的路，要从脚下第一步开始，比喻________________。", "answer": "做事要从小事做起|成功需要积累", "region": "成语园"}, {"id": 107, "subject": "chinese", "grade": 3, "type": "choice", "question": "「窗前」中「窗」字的结构是？", "options": ["上下结构", "上中下结构", "左右结构", "半包围结构"], "answer": 3, "region": "识字城堡"}, {"id": 108, "subject": "chinese", "grade": 3, "type": "choice", "question": "「燕子」一文中，燕子的尾巴像？", "options": ["剪刀", "扇子", "镰刀", "箭头"], "answer": 0, "region": "阅读湖"}, {"id": 109, "subject": "chinese", "grade": 3, "type": "fill", "question": "「春眠不觉晓，处处闻啼鸟。夜来风雨声，______。」", "answer": "花落知多少", "region": "古诗塔"}, {"id": 110, "subject": "chinese", "grade": 3, "type": "choice", "question": "「活跃」的反义词是？", "options": ["沉静", "安静", "平静", "冷静"], "answer": 0, "region": "词汇林"}, {"id": 121, "subject": "english", "grade": 3, "type": "choice", "question": "\"apple\"的汉语意思是？", "options": ["香蕉", "苹果", "橙子", "葡萄"], "answer": 1, "region": "英语森林"}, {"id": 122, "subject": "english", "grade": 3, "type": "choice", "question": "\"Good morning\"的意思是？", "options": ["晚上好", "下午好", "早上好", "再见"], "answer": 2, "region": "英语森林"}, {"id": 123, "subject": "english", "grade": 3, "type": "fill", "question": "\"Hello\"的意思是______。", "answer": "你好", "region": "英语森林"}, {"id": 124, "subject": "english", "grade": 3, "type": "choice", "question": "下面哪个单词是颜色？", "options": ["cat", "dog", "red", "book"], "answer": 2, "region": "英语森林"}, {"id": 125, "subject": "english", "grade": 3, "type": "choice", "question": "\"How are you?\"的回答是？", "options": ["I'm fine.", "I'm five.", "I'm tall.", "I'm a boy."], "answer": 0, "region": "英语森林"}, {"id": 111, "subject": "math", "grade": 3, "type": "choice", "question": "25×4=？", "options": ["90", "100", "110", "120"], "answer": 1, "region": "数学迷宫"}, {"id": 112, "subject": "math", "grade": 3, "type": "fill", "question": "1吨=______千克", "answer": "1000", "region": "数学迷宫"}, {"id": 113, "subject": "math", "grade": 3, "type": "choice", "question": "一个正方形的边长是5厘米，它的周长是？", "options": ["10厘米", "15厘米", "20厘米", "25厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 114, "subject": "math", "grade": 3, "type": "choice", "question": "345-198=？", "options": ["147", "148", "247", "248"], "answer": 2, "region": "数学迷宫"}, {"id": 115, "subject": "math", "grade": 3, "type": "fill", "question": "6时30分=______分", "answer": "390", "region": "数学迷宫"}, {"id": 116, "subject": "math", "grade": 3, "type": "choice", "question": "456÷8=？", "options": ["57", "56", "55", "58"], "answer": 0, "region": "数学迷宫"}, {"id": 117, "subject": "math", "grade": 3, "type": "choice", "question": "下面哪个图形不是轴对称图形？", "options": ["正方形", "长方形", "平行四边形", "等腰三角形"], "answer": 2, "region": "数学迷宫"}, {"id": 118, "subject": "math", "grade": 3, "type": "fill", "question": "在括号里填上合适的单位：一个苹果约重150______。", "answer": "克", "region": "数学迷宫"}, {"id": 119, "subject": "math", "grade": 3, "type": "choice", "question": "小明从家到学校要走15分钟，他要在8:00到校，最晚应该几点出发？", "options": ["7:35", "7:40", "7:45", "7:50"], "answer": 2, "region": "数学迷宫"}, {"id": 120, "subject": "math", "grade": 3, "type": "choice", "question": "一个长方形的长是8厘米，宽是5厘米，面积是？", "options": ["13平方厘米", "26平方厘米", "40平方厘米", "80平方厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 126, "subject": "chinese", "grade": 4, "type": "choice", "question": "《观潮》中，钱塘江大潮被称为「天下奇观」是因为？", "options": ["水很清", "潮水壮观", "鱼很多", "很长"], "answer": 1, "region": "阅读湖"}, {"id": 127, "subject": "chinese", "grade": 4, "type": "fill", "question": "「一道残阳铺水中，______。」（《暮江吟》）", "answer": "半江瑟瑟半江红", "region": "古诗塔"}, {"id": 128, "subject": "chinese", "grade": 4, "type": "choice", "question": "「蟋蟀」的「蟋」字偏旁是？", "options": ["虫", "西", "矢", "月"], "answer": 0, "region": "识字城堡"}, {"id": 129, "subject": "chinese", "grade": 4, "type": "choice", "question": "「爬山虎」一文中，爬山虎的脚长在？", "options": ["茎上", "叶柄上", "墙上", "根上"], "answer": 0, "region": "阅读湖"}, {"id": 130, "subject": "chinese", "grade": 4, "type": "fill", "question": "成语「不识庐山真面目，只缘身在此山中」出自宋代诗人______的《题西林壁》。", "answer": "苏轼", "region": "古诗塔"}, {"id": 131, "subject": "chinese", "grade": 4, "type": "choice", "question": "「慈母手中线，游子身上衣」出自哪首诗？", "options": ["《游子吟》", "《静夜思》", "《春晓》", "《悯农》"], "answer": 0, "region": "古诗塔"}, {"id": 132, "subject": "chinese", "grade": 4, "type": "choice", "question": "「温暖」的反义词是？", "options": ["寒冷", "炎热", "凉爽", "温热"], "answer": 0, "region": "词汇林"}, {"id": 133, "subject": "chinese", "grade": 4, "type": "fill", "question": "「横看成岭侧成峰，远近高低各不同。不识庐山真面目，________________。」", "answer": "只缘身在此山中", "region": "古诗塔"}, {"id": 134, "subject": "chinese", "grade": 4, "type": "choice", "question": "下面哪个词语书写正确？", "options": ["倾刻", "倾刻", "顷刻", "顷刻"], "answer": 2, "region": "识字城堡"}, {"id": 135, "subject": "chinese", "grade": 4, "type": "choice", "question": "「巨」字有几笔？", "options": ["3笔", "4笔", "5笔", "6笔"], "answer": 1, "region": "识字城堡"}, {"id": 146, "subject": "english", "grade": 4, "type": "choice", "question": "\"I like playing football.\"中的\"football\"是？", "options": ["篮球", "足球", "排球", "网球"], "answer": 1, "region": "英语森林"}, {"id": 147, "subject": "english", "grade": 4, "type": "fill", "question": "\"What's your name?\"的回答：______ name is Tom.", "answer": "My", "region": "英语森林"}, {"id": 148, "subject": "english", "grade": 4, "type": "choice", "question": "下面哪个是星期一？", "options": ["Sunday", "Monday", "Friday", "Saturday"], "answer": 1, "region": "英语森林"}, {"id": 149, "subject": "english", "grade": 4, "type": "choice", "question": "\"教\"的英语是？", "options": ["learn", "teach", "study", "read"], "answer": 1, "region": "英语森林"}, {"id": 150, "subject": "english", "grade": 4, "type": "fill", "question": "\"Thank you\"的回答是：______ welcome.", "answer": "You're", "region": "英语森林"}, {"id": 136, "subject": "math", "grade": 4, "type": "fill", "question": "125×8=______", "answer": "1000", "region": "数学迷宫"}, {"id": 137, "subject": "math", "grade": 4, "type": "choice", "question": "一个数除以32，商是12，余数是5，这个数是？", "options": ["384", "389", "379", "394"], "answer": 1, "region": "数学迷宫"}, {"id": 138, "subject": "math", "grade": 4, "type": "choice", "question": "1公顷=______平方米", "options": ["100", "1000", "10000", "100000"], "answer": 2, "region": "数学迷宫"}, {"id": 139, "subject": "math", "grade": 4, "type": "fill", "question": "一个三角形的底是6厘米，高是4厘米，面积是______平方厘米。", "answer": "12", "region": "数学迷宫"}, {"id": 140, "subject": "math", "grade": 4, "type": "choice", "question": "0.35读作？", "options": ["零点三十五", "零点三五", "三点五", "三十五"], "answer": 1, "region": "数学迷宫"}, {"id": 141, "subject": "math", "grade": 4, "type": "choice", "question": "把3.5改写成三位小数是？", "options": ["3.05", "3.005", "3.500", "3.050"], "answer": 2, "region": "数学迷宫"}, {"id": 142, "subject": "math", "grade": 4, "type": "fill", "question": "3千米50米=______米", "answer": "3050", "region": "数学迷宫"}, {"id": 143, "subject": "math", "grade": 4, "type": "choice", "question": "一个平行四边形的面积是24平方厘米，底是6厘米，高是？", "options": ["3厘米", "4厘米", "6厘米", "8厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 144, "subject": "math", "grade": 4, "type": "choice", "question": "下面的数中，最大的是？", "options": ["0.8", "0.79", "0.81", "0.809"], "answer": 2, "region": "数学迷宫"}, {"id": 145, "subject": "math", "grade": 4, "type": "fill", "question": "456÷12=______", "answer": "38", "region": "数学迷宫"}, {"id": 151, "subject": "chinese", "grade": 5, "type": "choice", "question": "《草原》的作者是？", "options": ["老舍", "巴金", "冰心", "鲁迅"], "answer": 0, "region": "阅读湖"}, {"id": 152, "subject": "chinese", "grade": 5, "type": "fill", "question": "「白毛浮绿水，______。」（《咏鹅》）", "answer": "红掌拨清波", "region": "古诗塔"}, {"id": 153, "subject": "chinese", "grade": 5, "type": "choice", "question": "「珍珠鸟」一文中，珍珠鸟从害怕到信任作者，说明？", "options": ["鸟很笨", "信任创造美好", "作者很厉害", "鸟很可爱"], "answer": 1, "region": "阅读湖"}, {"id": 154, "subject": "chinese", "grade": 5, "type": "choice", "question": "「国家」的「国」字是？", "options": ["上下结构", "上中下结构", "全包围结构", "左右结构"], "answer": 2, "region": "识字城堡"}, {"id": 155, "subject": "chinese", "grade": 5, "type": "fill", "question": "成语「画蛇添足」的意思是比喻做了多余的事，反而把事情弄坏。请写一个含有该成语的句子：________________。", "answer": "做事情要适可而止，否则会画蛇添足", "region": "成语园"}, {"id": 156, "subject": "chinese", "grade": 5, "type": "choice", "question": "《落花生》告诉我们什么道理？", "options": ["要做有用的人", "花生很好吃", "种花生很有趣", "花生很便宜"], "answer": 0, "region": "阅读湖"}, {"id": 157, "subject": "chinese", "grade": 5, "type": "fill", "question": "「人生自古谁无死，________________。」（文天祥《过零丁洋》）", "answer": "留取丹心照汗青", "region": "古诗塔"}, {"id": 158, "subject": "chinese", "grade": 5, "type": "choice", "question": "下面哪个成语书写正确？", "options": ["迫不急待", "迫不及待", "破不急待", "破不及待"], "answer": 1, "region": "成语园"}, {"id": 159, "subject": "chinese", "grade": 5, "type": "choice", "question": "「悠然自得」中「悠然」的意思是？", "options": ["很久", "悠闲", "遥远", "忧愁"], "answer": 1, "region": "词汇林"}, {"id": 160, "subject": "chinese", "grade": 5, "type": "fill", "question": "「春风又绿江南岸，________________。」", "answer": "明月何时照我还", "region": "古诗塔"}, {"id": 171, "subject": "english", "grade": 5, "type": "choice", "question": "\"I can swim.\"的意思是？", "options": ["我会唱歌", "我会游泳", "我会跳舞", "我会画画"], "answer": 1, "region": "英语森林"}, {"id": 172, "subject": "english", "grade": 5, "type": "fill", "question": "\"Let's go to the park.\"的回答：Good ______!", "answer": "idea", "region": "英语森林"}, {"id": 173, "subject": "english", "grade": 5, "type": "choice", "question": "下面哪个是季节？", "options": ["Monday", "January", "summer", "morning"], "answer": 2, "region": "英语森林"}, {"id": 174, "subject": "english", "grade": 5, "type": "fill", "question": "\"Elephant\"的汉语意思是______。", "answer": "大象", "region": "英语森林"}, {"id": 175, "subject": "english", "grade": 5, "type": "choice", "question": "\"Why do you like spring?\"的回答可以是？", "options": ["Because I can plant trees.", "I like spring.", "Spring is warm.", "Yes, I do."], "answer": 0, "region": "英语森林"}, {"id": 161, "subject": "math", "grade": 5, "type": "fill", "question": "3.5×0.2=______", "answer": "0.7", "region": "数学迷宫"}, {"id": 162, "subject": "math", "grade": 5, "type": "choice", "question": "一个平行四边形的面积是36平方厘米，底是9厘米，高是？", "options": ["3厘米", "4厘米", "6厘米", "12厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 163, "subject": "math", "grade": 5, "type": "choice", "question": "2.5÷0.5=？", "options": ["5", "0.5", "50", "0.05"], "answer": 0, "region": "数学迷宫"}, {"id": 164, "subject": "math", "grade": 5, "type": "fill", "question": "一个三角形的面积是18平方厘米，底是6厘米，高是______厘米。", "answer": "6", "region": "数学迷宫"}, {"id": 165, "subject": "math", "grade": 5, "type": "choice", "question": "下面的数中，最小的是？", "options": ["0.3", "0.30", "0.299", "0.301"], "answer": 2, "region": "数学迷宫"}, {"id": 166, "subject": "math", "grade": 5, "type": "fill", "question": "4.8÷0.16=______", "answer": "30", "region": "数学迷宫"}, {"id": 167, "subject": "math", "grade": 5, "type": "choice", "question": "一个长方体的长是5厘米，宽是4厘米，高是3厘米，体积是？", "options": ["12立方厘米", "35立方厘米", "60立方厘米", "120立方厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 168, "subject": "math", "grade": 5, "type": "fill", "question": "75分钟=______小时", "answer": "1.25|1又4分之1", "region": "数学迷宫"}, {"id": 169, "subject": "math", "grade": 5, "type": "choice", "question": "一个梯形的上底是3厘米，下底是5厘米，高是4厘米，面积是？", "options": ["12平方厘米", "16平方厘米", "24平方厘米", "32平方厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 170, "subject": "math", "grade": 5, "type": "choice", "question": "下列算式中，结果最大的是？", "options": ["2.5×1.2", "2.5÷1.2", "2.5×0.8", "2.5÷0.8"], "answer": 1, "region": "数学迷宫"}, {"id": 176, "subject": "chinese", "grade": 6, "type": "choice", "question": "《少年闰土》的作者是？", "options": ["老舍", "鲁迅", "巴金", "茅盾"], "answer": 1, "region": "阅读湖"}, {"id": 177, "subject": "chinese", "grade": 6, "type": "fill", "question": "「黑云压城城欲摧，________________。」", "answer": "甲光向日金鳞开", "region": "古诗塔"}, {"id": 178, "subject": "chinese", "grade": 6, "type": "choice", "question": "「伯牙绝弦」的故事告诉我们？", "options": ["琴很难弹", "知音难觅", "伯牙很厉害", "钟子期很穷"], "answer": 1, "region": "阅读湖"}, {"id": 179, "subject": "chinese", "grade": 6, "type": "choice", "question": "「詹天佑」一文中，詹天佑设计的铁路是？", "options": ["京张铁路", "京沪铁路", "京广铁路", "陇海铁路"], "answer": 0, "region": "阅读湖"}, {"id": 180, "subject": "chinese", "grade": 6, "type": "fill", "question": "「出淤泥而不染，________________。」（周敦颐《爱莲说》）", "answer": "濯清涟而不妖", "region": "古诗塔"}, {"id": 181, "subject": "chinese", "grade": 6, "type": "choice", "question": "下面哪个词语没有错别字？", "options": ["不曲不挠", "不屈不挠", "不曲不饶", "不屈不饶"], "answer": 1, "region": "词汇林"}, {"id": 182, "subject": "chinese", "grade": 6, "type": "fill", "question": "「山重水复疑无路，________________。」（陆游《游山西村》）", "answer": "柳暗花明又一村", "region": "古诗塔"}, {"id": 183, "subject": "chinese", "grade": 6, "type": "choice", "question": "《我的伯父鲁迅先生》中，鲁迅先生是？", "options": ["作者的父亲", "作者的伯父", "作者的老师", "作者的邻居"], "answer": 1, "region": "阅读湖"}, {"id": 184, "subject": "chinese", "grade": 6, "type": "choice", "question": "「月光曲」中，贝多芬创作的曲子表现了？", "options": ["愤怒", "忧伤", "月光下的美好", "战争"], "answer": 2, "region": "阅读湖"}, {"id": 185, "subject": "chinese", "grade": 6, "type": "fill", "question": "「先天下之忧而忧，________________。」（范仲淹《岳阳楼记》）", "answer": "后天下之乐而乐", "region": "古诗塔"}, {"id": 196, "subject": "english", "grade": 6, "type": "choice", "question": "\"I'm going to visit my grandparents tomorrow.\"的意思是？", "options": ["我昨天看望了祖父母", "我明天打算去看望祖父母", "我正在看望祖父母", "我每天都看望祖父母"], "answer": 1, "region": "英语森林"}, {"id": 197, "subject": "english", "grade": 6, "type": "fill", "question": "\"What did you do last weekend?\"的回答：I ______ my homework.", "answer": "did", "region": "英语森林"}, {"id": 198, "subject": "english", "grade": 6, "type": "choice", "question": "\"hobby\"的汉语意思是？", "options": ["假日", "爱好", "工作", "学习"], "answer": 1, "region": "英语森林"}, {"id": 199, "subject": "english", "grade": 6, "type": "fill", "question": "\"Please be quiet.\"的意思是请______。", "answer": "安静", "region": "英语森林"}, {"id": 200, "subject": "english", "grade": 6, "type": "choice", "question": "\"I'm taller than you.\"的意思是？", "options": ["我比你矮", "我比你高", "我比你重", "我比你轻"], "answer": 1, "region": "英语森林"}, {"id": 186, "subject": "math", "grade": 6, "type": "fill", "question": "圆的周长公式是C=______，其中r是半径。", "answer": "2πr", "region": "数学迷宫"}, {"id": 187, "subject": "math", "grade": 6, "type": "choice", "question": "一个圆的半径是3厘米，它的周长约是？", "options": ["9.42厘米", "18.84厘米", "28.26厘米", "56.52厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 188, "subject": "math", "grade": 6, "type": "fill", "question": "圆的面积公式是S=______。", "answer": "πr²|πr*r|πr^2", "region": "数学迷宫"}, {"id": 189, "subject": "math", "grade": 6, "type": "choice", "question": "一个圆的直径是10厘米，它的面积是？", "options": ["31.4平方厘米", "62.8平方厘米", "78.5平方厘米", "314平方厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 190, "subject": "math", "grade": 6, "type": "fill", "question": "比例3:5=______:20中，空白处填______。", "answer": "12", "region": "数学迷宫"}, {"id": 191, "subject": "math", "grade": 6, "type": "choice", "question": "把一个圆柱削成最大的圆锥，削去部分的体积是圆柱体积的？", "options": ["1/3", "2/3", "1/2", "1/4"], "answer": 1, "region": "数学迷宫"}, {"id": 192, "subject": "math", "grade": 6, "type": "fill", "question": "50%等于______（用小数表示）。", "answer": "0.5", "region": "数学迷宫"}, {"id": 193, "subject": "math", "grade": 6, "type": "choice", "question": "下列图形中，对称轴最多的是？", "options": ["等边三角形", "正方形", "圆", "长方形"], "answer": 2, "region": "数学迷宫"}, {"id": 194, "subject": "math", "grade": 6, "type": "fill", "question": "一个数的25%是5，这个数是______。", "answer": "20", "region": "数学迷宫"}, {"id": 195, "subject": "math", "grade": 6, "type": "choice", "question": "甲数是乙数的4/5，乙数与甲数的比是？", "options": ["4:5", "5:4", "1:4", "1:5"], "answer": 1, "region": "数学迷宫"}];
+
+// State
+let state = {
+  currentTab: 'subjects',
+  currentSubject: null,
+  currentGrade: 2,
+  currentQuestion: 0,
+  score: 0,
+  answers: [],
+  level: 1,
+  points: 0,
+  badges: [],
+  completed: 0,
+  soundEnabled: true
 };
-</script>
-<div class="clouds" id="clouds"></div>
 
-<div class="container" id="app">
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="gems"><span class="gicon">💎</span><span id="gemCount">0</span></div>
-    <div class="actions">
-      <button class="btn-s" onclick="showBadges()" title="🏅徽章">🏅</button>
-      <button class="btn-s" onclick="showWrongBook()" title="📝错题">📝</button>
-      <button class="btn-s" onclick="showSettings()" title="⚙️设置">⚙️</button>
-    </div>
-  </div>
+// Load saved state
+const saved = localStorage.getItem('adventureState');
+if (saved) {
+  const parsed = JSON.parse(saved);
+  state = { ...state, ...parsed };
+}
 
-  <!-- Pet -->
-  <div class="pet-area">
-    <div class="pet-container" onclick="clickPet(event)">
-      <div class="pet-fox" id="petIcon">🦊</div>
-      <div class="pet-name" id="petName">小狐狸</div>
-      <div class="pet-lvl">Lv.<span id="petLvl">1</span></div>
-      <div class="pet-exp"><div class="pet-exp-fill" id="petExp" style="width:0%"></div></div>
-    </div>
-  </div>
+function saveState() {
+  localStorage.setItem('adventureState', JSON.stringify(state));
+}
 
-  <!-- Title -->
-  <div class="main-title">
-    <h1>🦊 学习大冒险</h1>
-    <div class="sub" id="todayInfo">今日欢迎语</div>
-  </div>
+function updateStats() {
+  document.getElementById('level').textContent = state.level;
+  document.getElementById('points').textContent = state.points;
+  document.getElementById('badgeCount').textContent = state.badges.length;
+  document.getElementById('completed').textContent = state.completed;
+}
 
-  <!-- Nav -->
-  <div class="nav-tabs" id="navTabs">
-    <button class="nav-tab active" onclick="switchTab('subjects')">📚 练习</button>
-    <button class="nav-tab" onclick="switchTab('map')">🗺️ 冒险</button>
-    <button class="nav-tab" onclick="switchTab('tasks')">📋 任务</button>
-  </div>
-
-  <!-- Subjects Tab -->
-  <div id="tab-subjects">
-    <div class="subject-grid" id="subjectGrid"></div>
-  </div>
-
-  <!-- Map Tab -->
-  <div id="tab-map" style="display:none">
-    <div class="map-area" id="mapArea"></div>
-  </div>
-
-  <!-- Tasks Tab -->
-  <div id="tab-tasks" style="display:none">
-    <div class="task-list" id="taskList"></div>
-  </div>
-</div>
-
-<!-- Quiz Overlay -->
-<div class="quiz-screen" id="quizScreen">
-  <div class="quiz-card" id="quizCard"></div>
-</div>
-
-<!-- Badge Toast -->
-<div id="badgeToast"></div>
-
-<!-- Overlays -->
-<div class="overlay" id="badgeOverlay"><div class="panel" id="badgePanel"></div></div>
-<div class="overlay" id="wrongOverlay"><div class="panel" id="wrongPanel"></div></div>
-<div class="overlay" id="settingsOverlay"><div class="panel" id="settingsPanel"></div></div>
-<div class="modal" id="confirmModal"></div>
-
-<script>
-const QUESTION_BANK = [{"id": 1, "subject": "chinese", "grade": 1, "type": "choice", "question": "「春」字的第一笔是？", "options": ["横", "竖", "撇", "点"], "answer": 2, "region": "拼音村"}, {"id": 2, "subject": "chinese", "grade": 1, "type": "choice", "question": "「山」字有几笔？", "options": ["1笔", "2笔", "3笔", "4笔"], "answer": 2, "region": "拼音村"}, {"id": 3, "subject": "chinese", "grade": 1, "type": "choice", "question": "下面哪个是「日」字的读音？", "options": ["rì", "yuè", "xīng", "tiān"], "answer": 0, "region": "拼音村"}, {"id": 4, "subject": "chinese", "grade": 1, "type": "fill", "question": "「大」字的笔画是____画。", "answer": "3", "region": "拼音村"}, {"id": 5, "subject": "chinese", "grade": 2, "type": "choice", "question": "「歌」字的部首是？", "options": ["欠", "口", "可", "彳"], "answer": 1, "region": "拼音村"}, {"id": 6, "subject": "chinese", "grade": 2, "type": "choice", "question": "「春」字的意思不包括？", "options": ["春天", "季节", "天气", "冬天"], "answer": 3, "region": "拼音村"}, {"id": 7, "subject": "chinese", "grade": 2, "type": "choice", "question": "「欢」字有几笔？", "options": ["4笔", "5笔", "6笔", "7笔"], "answer": 2, "region": "拼音村"}, {"id": 8, "subject": "chinese", "grade": 2, "type": "choice", "question": "「柳」字的特点是？", "options": ["左窄右宽", "左宽右窄", "左右相等", "上下结构"], "answer": 0, "region": "识字林"}, {"id": 9, "subject": "chinese", "grade": 2, "type": "choice", "question": "「梅花」的「梅」读作？", "options": ["méi", "mēi", "mèi", "mì"], "answer": 0, "region": "识字林"}, {"id": 10, "subject": "chinese", "grade": 2, "type": "fill", "question": "「春眠不觉晓，处处闻啼鸟，夜来风雨声，____知多少。」", "answer": "花落", "region": "古诗塔"}, {"id": 11, "subject": "chinese", "grade": 2, "type": "choice", "question": "「碧」字的意思是？", "options": ["绿色", "白色", "蓝色", "青绿色"], "answer": 3, "region": "识字林"}, {"id": 12, "subject": "chinese", "grade": 2, "type": "choice", "question": "下面哪个词语中「地」读轻声？", "options": ["土地", "慢慢地", "天地", "地面"], "answer": 1, "region": "识字林"}, {"id": 13, "subject": "chinese", "grade": 2, "type": "choice", "question": "「小蝌蚪找妈妈」是一篇？", "options": ["诗歌", "童话故事", "日记", "寓言"], "answer": 1, "region": "阅读湖"}, {"id": 14, "subject": "chinese", "grade": 2, "type": "choice", "question": "「露」字在「露珠」中读？", "options": ["lòu", "lù", "lǜ", "luò"], "answer": 1, "region": "拼音村"}, {"id": 15, "subject": "chinese", "grade": 2, "type": "choice", "question": "「神」字的偏旁是？", "options": ["礻", "衤", "讠", "阝"], "answer": 0, "region": "识字林"}, {"id": 16, "subject": "chinese", "grade": 2, "type": "fill", "question": "「______，二月春风似剪刀。」", "answer": "碧玉妆成一树高", "region": "古诗塔"}, {"id": 17, "subject": "chinese", "grade": 2, "type": "choice", "question": "「跳」字用音序查字法应先查？", "options": ["T", "t", "ti", "d"], "answer": 0, "region": "拼音村"}, {"id": 18, "subject": "chinese", "grade": 2, "type": "choice", "question": "「村」字的意思是？", "options": ["城市", "农村", "山", "水"], "answer": 1, "region": "识字林"}, {"id": 19, "subject": "chinese", "grade": 2, "type": "choice", "question": "「枫」字和什么有关？", "options": ["松树", "柳树", "枫树", "杨树"], "answer": 2, "region": "识字林"}, {"id": 20, "subject": "chinese", "grade": 2, "type": "choice", "question": "「飞」字有几笔？", "options": ["2笔", "3笔", "4笔", "5笔"], "answer": 1, "region": "拼音村"}, {"id": 21, "subject": "chinese", "grade": 2, "type": "choice", "question": "「春天」不是描写春天的词语是？", "options": ["春暖花开", "春回大地", "秋高气爽", "万物复苏"], "answer": 2, "region": "阅读湖"}, {"id": 22, "subject": "chinese", "grade": 2, "type": "choice", "question": "「儿童急走追黄蝶」下一句是？", "options": ["飞入菜花无处寻", "春江水暖鸭先知", "忙趁东风放纸鸢", "碧玉妆成一树高"], "answer": 0, "region": "古诗塔"}, {"id": 23, "subject": "chinese", "grade": 2, "type": "choice", "question": "「宿」字在「住宿」中读？", "options": ["sù", "xiǔ", "xù", "shù"], "answer": 0, "region": "拼音村"}, {"id": 24, "subject": "chinese", "grade": 2, "type": "fill", "question": "「两个黄鹂鸣翠柳，________。」", "answer": "一行白鹭上青天", "region": "古诗塔"}, {"id": 25, "subject": "chinese", "grade": 2, "type": "choice", "question": "「青」字可以组成？", "options": ["青山 青草 青天", "青草 青色 青蛙", "以上均可", "以上都不对"], "answer": 2, "region": "识字林"}, {"id": 26, "subject": "chinese", "grade": 2, "type": "choice", "question": "「岭」字的意思是？", "options": ["山峰", "大海", "森林", "河流"], "answer": 0, "region": "识字林"}, {"id": 27, "subject": "chinese", "grade": 2, "type": "choice", "question": "「含」字的结构是？", "options": ["上下结构", "上中下结构", "左右结构", "半包围结构"], "answer": 1, "region": "识字林"}, {"id": 28, "subject": "chinese", "grade": 2, "type": "choice", "question": "「春晓」的「晓」意思是？", "options": ["早上", "晚上", "中午", "春天"], "answer": 0, "region": "古诗塔"}, {"id": 29, "subject": "chinese", "grade": 2, "type": "choice", "question": "「岭」字的大写字母是？", "options": ["L", "N", "M", "G"], "answer": 0, "region": "拼音村"}, {"id": 30, "subject": "chinese", "grade": 2, "type": "choice", "question": "下列词语全是轻声词的是？", "options": ["妈妈 爸爸 哥哥", "桌子 椅子 兔子", "爷爷 奶奶 弟弟", "妈妈 石头 地方"], "answer": 1, "region": "识字林"}, {"id": 51, "subject": "english", "grade": 2, "type": "choice", "question": "“one”的汉语意思是？", "options": ["二", "三", "四", "一"], "answer": 3, "region": "英语森林"}, {"id": 52, "subject": "english", "grade": 2, "type": "choice", "question": "“cat”是什么动物？", "options": ["狗", "猫", "鸟", "鱼"], "answer": 1, "region": "英语森林"}, {"id": 53, "subject": "english", "grade": 2, "type": "choice", "question": "“red”是什么颜色？", "options": ["蓝色", "绿色", "红色", "黄色"], "answer": 2, "region": "英语森林"}, {"id": 54, "subject": "english", "grade": 2, "type": "choice", "question": "“five”对应数字几？", "options": ["4", "5", "6", "7"], "answer": 1, "region": "英语森林"}, {"id": 55, "subject": "english", "grade": 2, "type": "fill", "question": "“three”对应数字____。", "answer": "3", "region": "英语森林"}, {"id": 56, "subject": "english", "grade": 2, "type": "choice", "question": "“yellow”是什么颜色？", "options": ["红色", "蓝色", "黄色", "绿色"], "answer": 2, "region": "英语森林"}, {"id": 57, "subject": "english", "grade": 2, "type": "choice", "question": "“dog”翻译成汉语是？", "options": ["猫", "狗", "鸟", "鱼"], "answer": 1, "region": "英语森林"}, {"id": 58, "subject": "english", "grade": 2, "type": "choice", "question": "“book”的复数形式是？", "options": ["bookes", "books", "bookies", "book's"], "answer": 1, "region": "英语森林"}, {"id": 59, "subject": "english", "grade": 2, "type": "choice", "question": "“sun”是什么？", "options": ["月亮", "星星", "太阳", "地球"], "answer": 2, "region": "英语森林"}, {"id": 60, "subject": "english", "grade": 2, "type": "fill", "question": "I am a ____。（填写动物：狗的英语单词）", "answer": "dog", "region": "英语森林"}, {"id": 31, "subject": "math", "grade": 2, "type": "choice", "question": "15+27=？", "options": ["41", "42", "43", "44"], "answer": 1, "region": "数学迷宫"}, {"id": 32, "subject": "math", "grade": 2, "type": "choice", "question": "一个三角尺有几个角？", "options": ["2", "3", "4", "5"], "answer": 1, "region": "数学迷宫"}, {"id": 33, "subject": "math", "grade": 2, "type": "choice", "question": "3×7=？", "options": ["18", "21", "24", "27"], "answer": 1, "region": "数学迷宫"}, {"id": 34, "subject": "math", "grade": 2, "type": "fill", "question": "45 - ____ = 18", "answer": "27", "region": "数学迷宫"}, {"id": 35, "subject": "math", "grade": 2, "type": "choice", "question": "从镜子中看到数字「2」，实际是？", "options": ["2", "3", "5", "无法判断"], "answer": 2, "region": "数学迷宫"}, {"id": 36, "subject": "math", "grade": 2, "type": "choice", "question": "()×4=12，括号里填？", "options": ["2", "3", "4", "5"], "answer": 1, "region": "数学迷宫"}, {"id": 37, "subject": "math", "grade": 2, "type": "choice", "question": "100厘米=____米", "options": ["1", "10", "100", "0.1"], "answer": 0, "region": "数学迷宫"}, {"id": 38, "subject": "math", "grade": 2, "type": "choice", "question": "钟面上分针走一圈，时针走？", "options": ["1大格", "1小格", "不动", "2大格"], "answer": 0, "region": "数学迷宫"}, {"id": 39, "subject": "math", "grade": 2, "type": "choice", "question": "小明有18颗糖，小红比小明多9颗，小红有？", "options": ["26颗", "27颗", "28颗", "25颗"], "answer": 1, "region": "数学迷宫"}, {"id": 40, "subject": "math", "grade": 2, "type": "choice", "question": "()-15=30，括号里填？", "options": ["35", "45", "40", "50"], "answer": 1, "region": "数学迷宫"}, {"id": 41, "subject": "math", "grade": 2, "type": "choice", "question": "用3、0、8三张卡片摆三位数，可以摆出几个？", "options": ["2个", "3个", "4个", "5个"], "answer": 2, "region": "数学迷宫"}, {"id": 42, "subject": "math", "grade": 2, "type": "fill", "question": "8×____=56", "answer": "7", "region": "数学迷宫"}, {"id": 43, "subject": "math", "grade": 2, "type": "choice", "question": "一个西瓜平均切成8块，小明吃了3块，还剩？", "options": ["4块", "5块", "6块", "3块"], "answer": 1, "region": "数学迷宫"}, {"id": 44, "subject": "math", "grade": 2, "type": "choice", "question": "从1数到100，单数一共多少个？", "options": ["48个", "49个", "50个", "51个"], "answer": 2, "region": "数学迷宫"}, {"id": 45, "subject": "math", "grade": 2, "type": "choice", "question": "_×5<20，括号里最大能填几？", "options": ["2", "3", "4", "5"], "answer": 1, "region": "数学迷宫"}, {"id": 46, "subject": "math", "grade": 2, "type": "choice", "question": "小红排队做操，她前面有8人，后面有7人，一共多少人？", "options": ["14人", "15人", "16人", "17人"], "answer": 1, "region": "数学迷宫"}, {"id": 47, "subject": "math", "grade": 2, "type": "fill", "question": "63 ÷ ____ = 9", "answer": "7", "region": "数学迷宫"}, {"id": 48, "subject": "math", "grade": 2, "type": "choice", "question": "正方形有几条对称轴？", "options": ["1条", "2条", "3条", "4条"], "answer": 3, "region": "数学迷宫"}, {"id": 49, "subject": "math", "grade": 2, "type": "choice", "question": "8×8-8=？", "options": ["56", "64", "48", "72"], "answer": 0, "region": "数学迷宫"}, {"id": 50, "subject": "math", "grade": 2, "type": "choice", "question": "下面图形中哪些是对称图形？", "options": ["只有正方形", "只有长方形", "正方形和长方形", "圆形"], "answer": 2, "region": "数学迷宫"}, {"id": 101, "subject": "chinese", "grade": 3, "type": "choice", "question": "「早晨」的「晨」字共有几画？", "options": ["10画", "11画", "12画", "13画"], "answer": 1, "region": "识字城堡"}, {"id": 102, "subject": "chinese", "grade": 3, "type": "choice", "question": "下面哪个字的读音是「zhì」？", "options": ["知", "智", "志", "置"], "answer": 2, "region": "拼音村"}, {"id": 103, "subject": "chinese", "grade": 3, "type": "fill", "question": "《咏柳》中「碧玉妆成______，二月春风似剪刀。」", "answer": "一树高", "region": "古诗塔"}, {"id": 104, "subject": "chinese", "grade": 3, "type": "choice", "question": "「荷花」一课中，荷花的香味是？", "options": ["清香", "浓香", "微香", "无味"], "answer": 0, "region": "阅读湖"}, {"id": 105, "subject": "chinese", "grade": 3, "type": "choice", "question": "「池塘」中「塘」的偏旁是？", "options": ["土", "氵", "广", "口"], "answer": 1, "region": "识字城堡"}, {"id": 106, "subject": "chinese", "grade": 3, "type": "fill", "question": "成语「千里之行，始于足下」的意思是人要走千里远的路，要从脚下第一步开始，比喻________________。", "answer": "做事要从小事做起|成功需要积累", "region": "成语园"}, {"id": 107, "subject": "chinese", "grade": 3, "type": "choice", "question": "「窗前」中「窗」字的结构是？", "options": ["上下结构", "上中下结构", "左右结构", "半包围结构"], "answer": 3, "region": "识字城堡"}, {"id": 108, "subject": "chinese", "grade": 3, "type": "choice", "question": "「燕子」一文中，燕子的尾巴像？", "options": ["剪刀", "扇子", "镰刀", "箭头"], "answer": 0, "region": "阅读湖"}, {"id": 109, "subject": "chinese", "grade": 3, "type": "fill", "question": "「春眠不觉晓，处处闻啼鸟。夜来风雨声，______。」", "answer": "花落知多少", "region": "古诗塔"}, {"id": 110, "subject": "chinese", "grade": 3, "type": "choice", "question": "「活跃」的反义词是？", "options": ["沉静", "安静", "平静", "冷静"], "answer": 0, "region": "词汇林"}, {"id": 121, "subject": "english", "grade": 3, "type": "choice", "question": "\"apple\"的汉语意思是？", "options": ["香蕉", "苹果", "橙子", "葡萄"], "answer": 1, "region": "英语森林"}, {"id": 122, "subject": "english", "grade": 3, "type": "choice", "question": "\"Good morning\"的意思是？", "options": ["晚上好", "下午好", "早上好", "再见"], "answer": 2, "region": "英语森林"}, {"id": 123, "subject": "english", "grade": 3, "type": "fill", "question": "\"Hello\"的意思是______。", "answer": "你好", "region": "英语森林"}, {"id": 124, "subject": "english", "grade": 3, "type": "choice", "question": "下面哪个单词是颜色？", "options": ["cat", "dog", "red", "book"], "answer": 2, "region": "英语森林"}, {"id": 125, "subject": "english", "grade": 3, "type": "choice", "question": "\"How are you?\"的回答是？", "options": ["I'm fine.", "I'm five.", "I'm tall.", "I'm a boy."], "answer": 0, "region": "英语森林"}, {"id": 111, "subject": "math", "grade": 3, "type": "choice", "question": "25×4=？", "options": ["90", "100", "110", "120"], "answer": 1, "region": "数学迷宫"}, {"id": 112, "subject": "math", "grade": 3, "type": "fill", "question": "1吨=______千克", "answer": "1000", "region": "数学迷宫"}, {"id": 113, "subject": "math", "grade": 3, "type": "choice", "question": "一个正方形的边长是5厘米，它的周长是？", "options": ["10厘米", "15厘米", "20厘米", "25厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 114, "subject": "math", "grade": 3, "type": "choice", "question": "345-198=？", "options": ["147", "148", "247", "248"], "answer": 2, "region": "数学迷宫"}, {"id": 115, "subject": "math", "grade": 3, "type": "fill", "question": "6时30分=______分", "answer": "390", "region": "数学迷宫"}, {"id": 116, "subject": "math", "grade": 3, "type": "choice", "question": "456÷8=？", "options": ["57", "56", "55", "58"], "answer": 0, "region": "数学迷宫"}, {"id": 117, "subject": "math", "grade": 3, "type": "choice", "question": "下面哪个图形不是轴对称图形？", "options": ["正方形", "长方形", "平行四边形", "等腰三角形"], "answer": 2, "region": "数学迷宫"}, {"id": 118, "subject": "math", "grade": 3, "type": "fill", "question": "在括号里填上合适的单位：一个苹果约重150______。", "answer": "克", "region": "数学迷宫"}, {"id": 119, "subject": "math", "grade": 3, "type": "choice", "question": "小明从家到学校要走15分钟，他要在8:00到校，最晚应该几点出发？", "options": ["7:35", "7:40", "7:45", "7:50"], "answer": 2, "region": "数学迷宫"}, {"id": 120, "subject": "math", "grade": 3, "type": "choice", "question": "一个长方形的长是8厘米，宽是5厘米，面积是？", "options": ["13平方厘米", "26平方厘米", "40平方厘米", "80平方厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 126, "subject": "chinese", "grade": 4, "type": "choice", "question": "《观潮》中，钱塘江大潮被称为「天下奇观」是因为？", "options": ["水很清", "潮水壮观", "鱼很多", "很长"], "answer": 1, "region": "阅读湖"}, {"id": 127, "subject": "chinese", "grade": 4, "type": "fill", "question": "「一道残阳铺水中，______。」（《暮江吟》）", "answer": "半江瑟瑟半江红", "region": "古诗塔"}, {"id": 128, "subject": "chinese", "grade": 4, "type": "choice", "question": "「蟋蟀」的「蟋」字偏旁是？", "options": ["虫", "西", "矢", "月"], "answer": 0, "region": "识字城堡"}, {"id": 129, "subject": "chinese", "grade": 4, "type": "choice", "question": "「爬山虎」一文中，爬山虎的脚长在？", "options": ["茎上", "叶柄上", "墙上", "根上"], "answer": 0, "region": "阅读湖"}, {"id": 130, "subject": "chinese", "grade": 4, "type": "fill", "question": "成语「不识庐山真面目，只缘身在此山中」出自宋代诗人______的《题西林壁》。", "answer": "苏轼", "region": "古诗塔"}, {"id": 131, "subject": "chinese", "grade": 4, "type": "choice", "question": "「慈母手中线，游子身上衣」出自哪首诗？", "options": ["《游子吟》", "《静夜思》", "《春晓》", "《悯农》"], "answer": 0, "region": "古诗塔"}, {"id": 132, "subject": "chinese", "grade": 4, "type": "choice", "question": "「温暖」的反义词是？", "options": ["寒冷", "炎热", "凉爽", "温热"], "answer": 0, "region": "词汇林"}, {"id": 133, "subject": "chinese", "grade": 4, "type": "fill", "question": "「横看成岭侧成峰，远近高低各不同。不识庐山真面目，________________。」", "answer": "只缘身在此山中", "region": "古诗塔"}, {"id": 134, "subject": "chinese", "grade": 4, "type": "choice", "question": "下面哪个词语书写正确？", "options": ["倾刻", "倾刻", "顷刻", "顷刻"], "answer": 2, "region": "识字城堡"}, {"id": 135, "subject": "chinese", "grade": 4, "type": "choice", "question": "「巨」字有几笔？", "options": ["3笔", "4笔", "5笔", "6笔"], "answer": 1, "region": "识字城堡"}, {"id": 146, "subject": "english", "grade": 4, "type": "choice", "question": "\"I like playing football.\"中的\"football\"是？", "options": ["篮球", "足球", "排球", "网球"], "answer": 1, "region": "英语森林"}, {"id": 147, "subject": "english", "grade": 4, "type": "fill", "question": "\"What's your name?\"的回答：______ name is Tom.", "answer": "My", "region": "英语森林"}, {"id": 148, "subject": "english", "grade": 4, "type": "choice", "question": "下面哪个是星期一？", "options": ["Sunday", "Monday", "Friday", "Saturday"], "answer": 1, "region": "英语森林"}, {"id": 149, "subject": "english", "grade": 4, "type": "choice", "question": "\"教\"的英语是？", "options": ["learn", "teach", "study", "read"], "answer": 1, "region": "英语森林"}, {"id": 150, "subject": "english", "grade": 4, "type": "fill", "question": "\"Thank you\"的回答是：______ welcome.", "answer": "You're", "region": "英语森林"}, {"id": 136, "subject": "math", "grade": 4, "type": "fill", "question": "125×8=______", "answer": "1000", "region": "数学迷宫"}, {"id": 137, "subject": "math", "grade": 4, "type": "choice", "question": "一个数除以32，商是12，余数是5，这个数是？", "options": ["384", "389", "379", "394"], "answer": 1, "region": "数学迷宫"}, {"id": 138, "subject": "math", "grade": 4, "type": "choice", "question": "1公顷=______平方米", "options": ["100", "1000", "10000", "100000"], "answer": 2, "region": "数学迷宫"}, {"id": 139, "subject": "math", "grade": 4, "type": "fill", "question": "一个三角形的底是6厘米，高是4厘米，面积是______平方厘米。", "answer": "12", "region": "数学迷宫"}, {"id": 140, "subject": "math", "grade": 4, "type": "choice", "question": "0.35读作？", "options": ["零点三十五", "零点三五", "三点五", "三十五"], "answer": 1, "region": "数学迷宫"}, {"id": 141, "subject": "math", "grade": 4, "type": "choice", "question": "把3.5改写成三位小数是？", "options": ["3.05", "3.005", "3.500", "3.050"], "answer": 2, "region": "数学迷宫"}, {"id": 142, "subject": "math", "grade": 4, "type": "fill", "question": "3千米50米=______米", "answer": "3050", "region": "数学迷宫"}, {"id": 143, "subject": "math", "grade": 4, "type": "choice", "question": "一个平行四边形的面积是24平方厘米，底是6厘米，高是？", "options": ["3厘米", "4厘米", "6厘米", "8厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 144, "subject": "math", "grade": 4, "type": "choice", "question": "下面的数中，最大的是？", "options": ["0.8", "0.79", "0.81", "0.809"], "answer": 2, "region": "数学迷宫"}, {"id": 145, "subject": "math", "grade": 4, "type": "fill", "question": "456÷12=______", "answer": "38", "region": "数学迷宫"}, {"id": 151, "subject": "chinese", "grade": 5, "type": "choice", "question": "《草原》的作者是？", "options": ["老舍", "巴金", "冰心", "鲁迅"], "answer": 0, "region": "阅读湖"}, {"id": 152, "subject": "chinese", "grade": 5, "type": "fill", "question": "「白毛浮绿水，______。」（《咏鹅》）", "answer": "红掌拨清波", "region": "古诗塔"}, {"id": 153, "subject": "chinese", "grade": 5, "type": "choice", "question": "「珍珠鸟」一文中，珍珠鸟从害怕到信任作者，说明？", "options": ["鸟很笨", "信任创造美好", "作者很厉害", "鸟很可爱"], "answer": 1, "region": "阅读湖"}, {"id": 154, "subject": "chinese", "grade": 5, "type": "choice", "question": "「国家」的「国」字是？", "options": ["上下结构", "上中下结构", "全包围结构", "左右结构"], "answer": 2, "region": "识字城堡"}, {"id": 155, "subject": "chinese", "grade": 5, "type": "fill", "question": "成语「画蛇添足」的意思是比喻做了多余的事，反而把事情弄坏。请写一个含有该成语的句子：________________。", "answer": "做事情要适可而止，否则会画蛇添足", "region": "成语园"}, {"id": 156, "subject": "chinese", "grade": 5, "type": "choice", "question": "《落花生》告诉我们什么道理？", "options": ["要做有用的人", "花生很好吃", "种花生很有趣", "花生很便宜"], "answer": 0, "region": "阅读湖"}, {"id": 157, "subject": "chinese", "grade": 5, "type": "fill", "question": "「人生自古谁无死，________________。」（文天祥《过零丁洋》）", "answer": "留取丹心照汗青", "region": "古诗塔"}, {"id": 158, "subject": "chinese", "grade": 5, "type": "choice", "question": "下面哪个成语书写正确？", "options": ["迫不急待", "迫不及待", "破不急待", "破不及待"], "answer": 1, "region": "成语园"}, {"id": 159, "subject": "chinese", "grade": 5, "type": "choice", "question": "「悠然自得」中「悠然」的意思是？", "options": ["很久", "悠闲", "遥远", "忧愁"], "answer": 1, "region": "词汇林"}, {"id": 160, "subject": "chinese", "grade": 5, "type": "fill", "question": "「春风又绿江南岸，________________。」", "answer": "明月何时照我还", "region": "古诗塔"}, {"id": 171, "subject": "english", "grade": 5, "type": "choice", "question": "\"I can swim.\"的意思是？", "options": ["我会唱歌", "我会游泳", "我会跳舞", "我会画画"], "answer": 1, "region": "英语森林"}, {"id": 172, "subject": "english", "grade": 5, "type": "fill", "question": "\"Let's go to the park.\"的回答：Good ______!", "answer": "idea", "region": "英语森林"}, {"id": 173, "subject": "english", "grade": 5, "type": "choice", "question": "下面哪个是季节？", "options": ["Monday", "January", "summer", "morning"], "answer": 2, "region": "英语森林"}, {"id": 174, "subject": "english", "grade": 5, "type": "fill", "question": "\"Elephant\"的汉语意思是______。", "answer": "大象", "region": "英语森林"}, {"id": 175, "subject": "english", "grade": 5, "type": "choice", "question": "\"Why do you like spring?\"的回答可以是？", "options": ["Because I can plant trees.", "I like spring.", "Spring is warm.", "Yes, I do."], "answer": 0, "region": "英语森林"}, {"id": 161, "subject": "math", "grade": 5, "type": "fill", "question": "3.5×0.2=______", "answer": "0.7", "region": "数学迷宫"}, {"id": 162, "subject": "math", "grade": 5, "type": "choice", "question": "一个平行四边形的面积是36平方厘米，底是9厘米，高是？", "options": ["3厘米", "4厘米", "6厘米", "12厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 163, "subject": "math", "grade": 5, "type": "choice", "question": "2.5÷0.5=？", "options": ["5", "0.5", "50", "0.05"], "answer": 0, "region": "数学迷宫"}, {"id": 164, "subject": "math", "grade": 5, "type": "fill", "question": "一个三角形的面积是18平方厘米，底是6厘米，高是______厘米。", "answer": "6", "region": "数学迷宫"}, {"id": 165, "subject": "math", "grade": 5, "type": "choice", "question": "下面的数中，最小的是？", "options": ["0.3", "0.30", "0.299", "0.301"], "answer": 2, "region": "数学迷宫"}, {"id": 166, "subject": "math", "grade": 5, "type": "fill", "question": "4.8÷0.16=______", "answer": "30", "region": "数学迷宫"}, {"id": 167, "subject": "math", "grade": 5, "type": "choice", "question": "一个长方体的长是5厘米，宽是4厘米，高是3厘米，体积是？", "options": ["12立方厘米", "35立方厘米", "60立方厘米", "120立方厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 168, "subject": "math", "grade": 5, "type": "fill", "question": "75分钟=______小时", "answer": "1.25|1又4分之1", "region": "数学迷宫"}, {"id": 169, "subject": "math", "grade": 5, "type": "choice", "question": "一个梯形的上底是3厘米，下底是5厘米，高是4厘米，面积是？", "options": ["12平方厘米", "16平方厘米", "24平方厘米", "32平方厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 170, "subject": "math", "grade": 5, "type": "choice", "question": "下列算式中，结果最大的是？", "options": ["2.5×1.2", "2.5÷1.2", "2.5×0.8", "2.5÷0.8"], "answer": 1, "region": "数学迷宫"}, {"id": 176, "subject": "chinese", "grade": 6, "type": "choice", "question": "《少年闰土》的作者是？", "options": ["老舍", "鲁迅", "巴金", "茅盾"], "answer": 1, "region": "阅读湖"}, {"id": 177, "subject": "chinese", "grade": 6, "type": "fill", "question": "「黑云压城城欲摧，________________。」", "answer": "甲光向日金鳞开", "region": "古诗塔"}, {"id": 178, "subject": "chinese", "grade": 6, "type": "choice", "question": "「伯牙绝弦」的故事告诉我们？", "options": ["琴很难弹", "知音难觅", "伯牙很厉害", "钟子期很穷"], "answer": 1, "region": "阅读湖"}, {"id": 179, "subject": "chinese", "grade": 6, "type": "choice", "question": "「詹天佑」一文中，詹天佑设计的铁路是？", "options": ["京张铁路", "京沪铁路", "京广铁路", "陇海铁路"], "answer": 0, "region": "阅读湖"}, {"id": 180, "subject": "chinese", "grade": 6, "type": "fill", "question": "「出淤泥而不染，________________。」（周敦颐《爱莲说》）", "answer": "濯清涟而不妖", "region": "古诗塔"}, {"id": 181, "subject": "chinese", "grade": 6, "type": "choice", "question": "下面哪个词语没有错别字？", "options": ["不曲不挠", "不屈不挠", "不曲不饶", "不屈不饶"], "answer": 1, "region": "词汇林"}, {"id": 182, "subject": "chinese", "grade": 6, "type": "fill", "question": "「山重水复疑无路，________________。」（陆游《游山西村》）", "answer": "柳暗花明又一村", "region": "古诗塔"}, {"id": 183, "subject": "chinese", "grade": 6, "type": "choice", "question": "《我的伯父鲁迅先生》中，鲁迅先生是？", "options": ["作者的父亲", "作者的伯父", "作者的老师", "作者的邻居"], "answer": 1, "region": "阅读湖"}, {"id": 184, "subject": "chinese", "grade": 6, "type": "choice", "question": "「月光曲」中，贝多芬创作的曲子表现了？", "options": ["愤怒", "忧伤", "月光下的美好", "战争"], "answer": 2, "region": "阅读湖"}, {"id": 185, "subject": "chinese", "grade": 6, "type": "fill", "question": "「先天下之忧而忧，________________。」（范仲淹《岳阳楼记》）", "answer": "后天下之乐而乐", "region": "古诗塔"}, {"id": 196, "subject": "english", "grade": 6, "type": "choice", "question": "\"I'm going to visit my grandparents tomorrow.\"的意思是？", "options": ["我昨天看望了祖父母", "我明天打算去看望祖父母", "我正在看望祖父母", "我每天都看望祖父母"], "answer": 1, "region": "英语森林"}, {"id": 197, "subject": "english", "grade": 6, "type": "fill", "question": "\"What did you do last weekend?\"的回答：I ______ my homework.", "answer": "did", "region": "英语森林"}, {"id": 198, "subject": "english", "grade": 6, "type": "choice", "question": "\"hobby\"的汉语意思是？", "options": ["假日", "爱好", "工作", "学习"], "answer": 1, "region": "英语森林"}, {"id": 199, "subject": "english", "grade": 6, "type": "fill", "question": "\"Please be quiet.\"的意思是请______。", "answer": "安静", "region": "英语森林"}, {"id": 200, "subject": "english", "grade": 6, "type": "choice", "question": "\"I'm taller than you.\"的意思是？", "options": ["我比你矮", "我比你高", "我比你重", "我比你轻"], "answer": 1, "region": "英语森林"}, {"id": 186, "subject": "math", "grade": 6, "type": "fill", "question": "圆的周长公式是C=______，其中r是半径。", "answer": "2πr", "region": "数学迷宫"}, {"id": 187, "subject": "math", "grade": 6, "type": "choice", "question": "一个圆的半径是3厘米，它的周长约是？", "options": ["9.42厘米", "18.84厘米", "28.26厘米", "56.52厘米"], "answer": 1, "region": "数学迷宫"}, {"id": 188, "subject": "math", "grade": 6, "type": "fill", "question": "圆的面积公式是S=______。", "answer": "πr²|πr*r|πr^2", "region": "数学迷宫"}, {"id": 189, "subject": "math", "grade": 6, "type": "choice", "question": "一个圆的直径是10厘米，它的面积是？", "options": ["31.4平方厘米", "62.8平方厘米", "78.5平方厘米", "314平方厘米"], "answer": 2, "region": "数学迷宫"}, {"id": 190, "subject": "math", "grade": 6, "type": "fill", "question": "比例3:5=______:20中，空白处填______。", "answer": "12", "region": "数学迷宫"}, {"id": 191, "subject": "math", "grade": 6, "type": "choice", "question": "把一个圆柱削成最大的圆锥，削去部分的体积是圆柱体积的？", "options": ["1/3", "2/3", "1/2", "1/4"], "answer": 1, "region": "数学迷宫"}, {"id": 192, "subject": "math", "grade": 6, "type": "fill", "question": "50%等于______（用小数表示）。", "answer": "0.5", "region": "数学迷宫"}, {"id": 193, "subject": "math", "grade": 6, "type": "choice", "question": "下列图形中，对称轴最多的是？", "options": ["等边三角形", "正方形", "圆", "长方形"], "answer": 2, "region": "数学迷宫"}, {"id": 194, "subject": "math", "grade": 6, "type": "fill", "question": "一个数的25%是5，这个数是______。", "answer": "20", "region": "数学迷宫"}, {"id": 195, "subject": "math", "grade": 6, "type": "choice", "question": "甲数是乙数的4/5，乙数与甲数的比是？", "options": ["4:5", "5:4", "1:4", "1:5"], "answer": 1, "region": "数学迷宫"}];
-const DAILY_TASKS = [{"id": 1, "emoji": "📖", "title": "语文小达人", "desc": "完成5道语文题", "target": 5, "subject": "chinese", "gemReward": 15}, {"id": 2, "emoji": "🔢", "title": "数学小天才", "desc": "完成5道数学题", "target": 5, "subject": "math", "gemReward": 15}, {"id": 3, "emoji": "⚡", "title": "连击挑战", "desc": "连续答对10题", "target": 10, "combo": true, "gemReward": 30}, {"id": 4, "emoji": "🌟", "title": "初学者", "desc": "完成第一道题", "target": 1, "gemReward": 5}];
-const BADGE_DEFS = [{"id": "first", "emoji": "🌟", "name": "初次冒险", "desc": "完成第一道题"}, {"id": "combo5", "emoji": "🔥", "name": "5连击", "desc": "连续答对5题"}, {"id": "combo10", "emoji": "⚡", "name": "连击王者", "desc": "连续答对10题"}, {"id": "gem50", "emoji": "💎", "name": "宝石达人", "desc": "收集50颗宝石"}, {"id": "gem100", "emoji": "👑", "name": "宝石收藏家", "desc": "收集100颗宝石"}, {"id": "petlv2", "emoji": "🦊", "name": "伙伴诞生", "desc": "小狐狸升到2级"}, {"id": "petlv5", "emoji": "🦊✨", "name": "伙伴进化", "desc": "小狐狸升到5级"}, {"id": "daily3", "emoji": "🏆", "name": "今日之星", "desc": "完成3个每日任务"}];
-
-// ===== State =====
-let gems = parseInt(localStorage.getItem('la_gems')||'0');
-let petExp = parseInt(localStorage.getItem('la_petExp')||'0');
-let petLevel = parseInt(localStorage.getItem('la_petLevel')||'1');
-let combo = 0, maxCombo = parseInt(localStorage.getItem('la_maxCombo')||'0');
-let totalCorrect = parseInt(localStorage.getItem('la_totalCorrect')||'0');
-let totalAnswered = parseInt(localStorage.getItem('la_totalAnswered')||'0');
-let unlockedBadges = new Set(JSON.parse(localStorage.getItem('la_badges')||'[]'));
-let wrongBook = JSON.parse(localStorage.getItem('la_wrongBook')||'[]');
-let todayTaskStates = JSON.parse(localStorage.getItem('la_taskStates_'+new Date().toDateString())||'[]');
-let soundOn = localStorage.getItem('la_sound')!=='false';
-let currentQuiz = null, quizIndex = 0, quizQuestions = [];
-let currentGrade = 2; // default grade
-
-// ===== Init =====
-const petStages = [
-  {level:1,emoji:'🦊',name:'小狐狸',expNeeded:5},
-  {level:2,emoji:'🦊',name:'小伙伴',expNeeded:15},
-  {level:3,emoji:'🦊✨',name:'探险家',expNeeded:30},
-  {level:4,emoji:'🦊🌟',name:'冒险王',expNeeded:60},
-  {level:5,emoji:'🦊👑',name:'传奇伙伴',expNeeded:100},
-];
-
-function updatePetUI(){
-  let stage = petStages[0];
-  for(let i=petStages.length-1;i>=0;i--){
-    if(petLevel>=petStages[i].level){ stage=petStages[i]; break; }
+function showTab(tab) {
+  state.currentTab = tab;
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  content.className = 'content fade-in';
+  
+  switch(tab) {
+    case 'subjects': renderSubjects(); break;
+    case 'map': renderMap(); break;
+    case 'badges': renderBadges(); break;
+    case 'settings': renderSettings(); break;
   }
-  document.getElementById('petIcon').textContent = stage.emoji;
-  document.getElementById('petName').textContent = stage.name;
-  document.getElementById('petLvl').textContent = petLevel;
-  
-  let currentStage = petStages.find(s=>s.level<=petLevel)||petStages[0];
-  let nextStage = petStages.find(s=>s.level>petLevel)||petStages[petStages.length-1];
-  let stageExp = petExp - currentStage.expNeeded + (petStages.findIndex(s=>s===currentStage)>0?petStages.slice(0,petStages.findIndex(s=>s===currentStage)).reduce((a,s)=>a+s.expNeeded,0):0);
-  let stageMax = nextStage.expNeeded;
-  let pct = Math.min(100, Math.max(0, (petExp / (petLevel>=5?100:stageMax)) * 100));
-  document.getElementById('petExp').style.width = pct+'%';
+  saveState();
 }
 
-function updateTopbar(){
-  document.getElementById('gemCount').textContent = gems;
+function renderSubjects() {
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <div class="grade-selector">
+      ${[1,2,3,4,5,6].map(g => 
+        `<button class="grade-btn ${g === state.currentGrade ? 'active' : ''}" onclick="setGrade(${g})">${g}年级</button>`
+      ).join('')}
+    </div>
+    <div class="subject-grid">
+      <div class="subject-card chinese" onclick="startQuiz('chinese')">
+        <div class="subject-icon">📖</div>
+        <h3>语文</h3>
+        <p>拼音、汉字、阅读</p>
+      </div>
+      <div class="subject-card math" onclick="startQuiz('math')">
+        <div class="subject-icon">🔢</div>
+        <h3>数学</h3>
+        <p>计算、图形、应用题</p>
+      </div>
+      <div class="subject-card english" onclick="startQuiz('english')">
+        <div class="subject-icon">🔤</div>
+        <h3>英语</h3>
+        <p>单词、语法、对话</p>
+      </div>
+    </div>
+  `;
 }
 
-function renderSubjects(){console.log("DEBUG", {currentGrade, qbLen: QUESTION_BANK?.length, sampleGrade: QUESTION_BANK?.[0]?.grade});
-  let grid = document.getElementById('subjectGrid');
-  let allGrades = [...new Set(QUESTION_BANK.map(q=>q.grade))].sort();
-  let subs = [
-    {id:'chinese',name:'📖 语文',bc:'#FF5E8A',emoji:'📖'},
-    {id:'math',name:'🔢 数学',bc:'#3498DB',emoji:'🔢'},
-    {id:'english',name:'🔤 英语',bc:'#2ECC71',emoji:'🔤'},
-    {id:'all',name:'🧪 综合',bc:'#FF7B3D',emoji:'🧪'},
-  ];
-  
-  // Grade selector
-  let gradeHtml = '<div style="grid-column:1/-1;display:flex;gap:6px;justify-content:center;margin-bottom:4px;flex-wrap:wrap">';
-  allGrades.forEach(g=>{
-    gradeHtml += '<button style="padding:4px 12px;border-radius:12px;border:none;cursor:pointer;font-weight:600;font-size:.8em;'+(g===currentGrade?'background:var(--blue);color:#fff':'background:#eee;color:var(--text)')+'" onclick="setGrade('+g+')">'+g+'年级</button>';
-  });
-  gradeHtml += '</div>';
-  grid.innerHTML = gradeHtml;
-  
-  subs.forEach(s=>{
-    let qs = s.id==='all' ? QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)) : QUESTION_BANK.filter(q=>q.subject===s.id && parseInt(q.grade)===parseInt(currentGrade));
-    let card = document.createElement('div');
-    card.className = 'sub-card';
-    card.style.setProperty('--bc', s.bc);
-    card.innerHTML = '<div class="icon">'+s.emoji+'</div><div class="name">'+s.name+'</div><div class="count">'+qs.length+'道题</div>';
-    card.onclick = ()=>startQuiz(s.id);
-    grid.appendChild(card);
-  });
-  
-  // Show total count
-  let total = QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)).length;
-  let info = document.createElement('div');
-  info.style.cssText = 'grid-column:1/-1;text-align:center;font-size:.8em;color:var(--sub);margin-top:4px';
-  info.textContent = currentGrade+'年级共 '+total+' 道题';
-  grid.appendChild(info);
-}
-
-function setGrade(g){
-  currentGrade = parseInt(g)||2;
+function setGrade(grade) {
+  state.currentGrade = grade;
   renderSubjects();
-  renderMap();
 }
 
-function renderMap(){
-  let map = document.getElementById('mapArea');
-  let regions = [...new Set(QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)).map(q=>q.region).filter(Boolean))];
-  if(regions.length===0) regions = ['练习区'];
+function startQuiz(subject) {
+  state.currentSubject = subject;
+  state.currentQuestion = 0;
+  state.score = 0;
+  state.answers = [];
   
-  let unlockedRegions = Math.min(regions.length, Math.ceil(totalCorrect/5)+1);
+  const filtered = QUESTIONS.filter(q => 
+    q.subject === subject && q.grade === state.currentGrade
+  );
   
-  let html = '<div style="text-align:center;margin-bottom:8px;font-weight:600;color:var(--text)">'+currentGrade+'年级冒险地图</div>';
-  html += '<div class="map-row">';
-  regions.forEach((r,i)=>{
-    let cls = i<unlockedRegions ? (i===unlockedRegions-1?'unlocked current':'unlocked') : 'locked';
-    html += '<div class="map-node '+cls+'" data-region="'+r.replace(/"/g, '&quot;')+'" data-unlocked="'+(i<unlockedRegions)+'"><div class="mn-emoji">'+(i<unlockedRegions?'🗺️':'🔒')+'</div><div class="mn-name">'+r+'</div></div>';
-  });
-  html += '</div>';
-  html += '<div style="text-align:center;font-size:.8em;color:var(--sub);margin-top:8px">答对题目解锁更多区域！</div>';
-  map.innerHTML = html;
-  map.querySelectorAll('.map-node[data-unlocked="true"]').forEach(node => {
-    node.onclick = () => startQuizByRegion(node.dataset.region);
-  });
-}
-
-function startQuizByRegion(region){
-  let qs = QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade) && q.region===region);
-  if(qs.length===0) return;
-  startQuizSession(qs);
-}
-
-function startQuiz(subject){
-  let qs = subject==='all' ? 
-    QUESTION_BANK.filter(q=>parseInt(q.grade)===parseInt(currentGrade)) :
-    QUESTION_BANK.filter(q=>q.subject===subject && parseInt(q.grade)===parseInt(currentGrade));
-  if(qs.length===0){ alert('当前年级暂无该科目题目！'); return; }
-  startQuizSession(qs);
-}
-
-function startQuizSession(qs){
-  quizQuestions = qs.sort(()=>Math.random()-.5).slice(0,10);
-  quizIndex = 0;
-  currentQuiz = {correct:0,total:0,combo:0,gemEarned:0};
-  showQuiz();
-}
-
-function showQuiz(){
-  if(quizIndex >= quizQuestions.length){
-    endQuiz();
+  if (filtered.length === 0) {
+    document.getElementById('content').innerHTML = `
+      <div style="text-align:center; padding:40px;">
+        <p style="font-size:1.2em; color:#666;">该年级暂无${subject === 'chinese' ? '语文' : subject === 'math' ? '数学' : '英语'}题目</p>
+        <button class="btn-primary" onclick="showTab('subjects')" style="margin-top:20px;">返回科目选择</button>
+      </div>
+    `;
     return;
   }
   
-  let q = quizQuestions[quizIndex];
-  let card = document.getElementById('quizCard');
-  let subColors = {chinese:'#FF5E8A',math:'#3498DB',english:'#2ECC71'};
-  let subNames = {chinese:'语文',math:'数学',english:'英语',general:'综合'};
-  let regionText = q.region ? '<div class="q-area">📍 '+q.region+' · '+q.grade+'年级</div>' : '';
-  
-  let html = '<button class="quiz-close" onclick="closeQuiz()">✕</button>';
-  html += '<div class="quiz-header">';
-  html += '<span class="quiz-tag '+q.subject+'" style="background:'+(subColors[q.subject]||'#FFF8F0')+'20">'+q.subject.toUpperCase()+'</span>';
-  html += '<div class="quiz-combo" id="quizComboDisplay">'+((combo>0)?'🔥 '+combo+'连击':'')+'</div>';
-  html += '<span class="quiz-qnum">'+(quizIndex+1)+'/'+quizQuestions.length+'</span>';
-  html += '</div>';
-  html += '<div class="quiz-progress"><div class="fill" style="width:'+((quizIndex/quizQuestions.length)*100)+'%"></div></div>';
-  html += regionText;
-  html += '<div class="quiz-question">'+q.question+'</div>';
-  
-  if(q.type==='fill'){
-    html += '<div class="quiz-fill"><input type="text" id="fillAnswer" placeholder="输入你的答案..." autocomplete="off"><button class="submit-btn" onclick="submitFill('+q.id+')">确认答案 ✓</button></div>';
-  } else {
-    html += '<div class="quiz-options">';
-    let labels = ['A','B','C','D'];
-    q.options.forEach((opt,i)=>{
-      html += '<div class="quiz-opt" onclick="answerQuestion('+q.id+','+i+',this)"><span class="oi">'+labels[i]+'</span>'+opt+'</div>';
-    });
-    html += '</div>';
-  }
-  
-  card.innerHTML = html;
-  document.getElementById('quizScreen').classList.add('active');
-  
-  // Focus input for fill questions
-  setTimeout(()=>{
-    let inp = document.getElementById('fillAnswer');
-    if(inp) inp.focus();
-  }, 300);
+  state.filteredQuestions = filtered;
+  showQuestion();
 }
 
-function submitFill(qid){
-  let inp = document.getElementById('fillAnswer');
-  if(!inp || !inp.value.trim()){ inp.focus(); return; }
+function showQuestion() {
+  const q = state.filteredQuestions[state.currentQuestion];
+  const total = state.filteredQuestions.length;
+  const progress = ((state.currentQuestion + 1) / total * 100).toFixed(0);
   
-  let q = QUESTION_BANK.find(x=>x.id===qid);
-  if(!q) return;
-  
-  let userAnswer = inp.value.trim();
-  let correctAnswers = q.answer.split('|');
-  let isCorrect = correctAnswers.some(a=>userAnswer===a || userAnswer.includes(a) || a.includes(userAnswer));
-  
-  totalAnswered++;
-  if(isCorrect){
-    combo++;
-    if(combo>maxCombo){ maxCombo=combo; localStorage.setItem('la_maxCombo',maxCombo); }
-    totalCorrect++;
-    petExp++;
-    currentQuiz.correct++;
-    currentQuiz.combo = Math.max(currentQuiz.combo||0, combo);
-    let gemBonus = Math.min(combo, 10);
-    gems += gemBonus;
-    currentQuiz.gemEarned += gemBonus;
-  } else {
-    combo = 0;
-    wrongBook.push({id:q.id,question:q.question,answer:q.answer,userAnswer:userAnswer,date:new Date().toISOString()});
-    localStorage.setItem('la_wrongBook', JSON.stringify(wrongBook));
-  }
-  
-  saveState();
-  checkBadges();
-  updatePetUI();
-  updateTopbar();
-  
-  // Show inline feedback
-  let card = document.getElementById('quizCard');
-  let fb = document.createElement('div');
-  fb.className = 'quiz-feedback show '+(isCorrect?'correct':'wrong');
-  fb.textContent = isCorrect ? '✅ 正确！+'+(Math.min(combo,10))+'💎' : '❌ 正确答案：'+q.answer.replace(/\|/g,' 或 ');
-  card.appendChild(fb);
-  
-  // Disable input
-  document.getElementById('fillAnswer').disabled = true;
-  document.querySelector('.submit-btn').setAttribute('onclick','');
-  
-  setTimeout(()=>{
-    quizIndex++;
-    showQuiz();
-  }, isCorrect?600:1200);
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <span>题目 ${state.currentQuestion + 1} / ${total}</span>
+        <span>${q.subject === 'chinese' ? '语文' : q.subject === 'math' ? '数学' : '英语'}</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${progress}%"></div>
+      </div>
+      <div class="question-box">
+        <div class="question-text">${q.question}</div>
+        <div class="options-list">
+          ${q.options.map((opt, i) => `
+            <button class="option-btn" onclick="answerQuestion(${i})">${String.fromCharCode(65 + i)}. ${opt}</button>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
-function answerQuestion(qid, optIdx, el){
-  let q = QUESTION_BANK.find(x=>x.id===qid);
-  if(!q) return;
+function answerQuestion(answer) {
+  const q = state.filteredQuestions[state.currentQuestion];
+  const correct = answer === q.answer;
   
-  // Disable all options
-  let opts = el.parentElement.querySelectorAll('.quiz-opt');
-  opts.forEach(o=>o.style.pointerEvents='none');
+  if (correct) {
+    state.score++;
+    state.points += 10;
+  }
+  state.answers.push({ question: q.id, correct });
   
-  totalAnswered++;
-  let isCorrect = optIdx === q.answer;
+  // Show feedback
+  const buttons = document.querySelectorAll('.option-btn');
+  buttons[q.answer].classList.add('correct');
+  if (!correct) {
+    buttons[answer].classList.add('wrong');
+  }
   
-  if(isCorrect){
-    el.classList.add('correct');
-    combo++;
-    if(combo>maxCombo){ maxCombo=combo; localStorage.setItem('la_maxCombo',maxCombo); }
-    totalCorrect++;
-    petExp++;
-    currentQuiz.correct++;
-    currentQuiz.combo = Math.max(currentQuiz.combo||0, combo);
-    let gemBonus = Math.min(combo, 10);
-    gems += gemBonus;
-    currentQuiz.gemEarned += gemBonus;
-    
-    // Combo popup
-    if(combo>=3){
-      let pop = document.createElement('div');
-      pop.className = 'quiz-combo-pop';
-      pop.textContent = '🔥x'+combo;
-      pop.style.left = '50%';
-      pop.style.top = '30%';
-      document.getElementById('quizCard').appendChild(pop);
-      setTimeout(()=>pop.remove(), 800);
+  // Disable all buttons
+  buttons.forEach(btn => btn.onclick = null);
+  
+  setTimeout(() => {
+    state.currentQuestion++;
+    if (state.currentQuestion < state.filteredQuestions.length) {
+      showQuestion();
+    } else {
+      showResult();
     }
-  } else {
-    el.classList.add('wrong');
-    combo = 0;
-    wrongBook.push({id:q.id,question:q.question,answer:(typeof q.answer==='number'?q.options[q.answer]:q.answer),userAnswer:q.options[optIdx],date:new Date().toISOString()});
-    localStorage.setItem('la_wrongBook', JSON.stringify(wrongBook));
-    // Highlight correct
-    setTimeout(()=>opts[q.answer].classList.add('correct'), 200);
+  }, 1000);
+}
+
+function showResult() {
+  const total = state.filteredQuestions.length;
+  const percentage = Math.round((state.score / total) * 100);
+  state.completed += total;
+  
+  // Level up check
+  const newLevel = Math.floor(state.points / 100) + 1;
+  if (newLevel > state.level) {
+    state.level = newLevel;
   }
   
+  // Badge check
+  checkBadges(percentage);
+  
+  let message = '';
+  if (percentage >= 90) message = '🎉 太棒了！你是学习小达人！';
+  else if (percentage >= 70) message = '👍 做得不错！继续加油！';
+  else if (percentage >= 50) message = '💪 还可以更好，再试一次吧！';
+  else message = '📚 别灰心，多练习就会进步的！';
+  
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <div class="result-screen">
+      <div style="font-size: 5em; margin-bottom: 20px;">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🥈' : '📖'}</div>
+      <div class="result-score">${percentage}%</div>
+      <div class="result-message">${message}</div>
+      <p style="color: #666; margin-bottom: 20px;">答对 ${state.score} / ${total} 题 | 获得 ${state.score * 10} 积分</p>
+      <button class="btn-primary" onclick="showTab('subjects')">继续冒险</button>
+    </div>
+  `;
+  
+  updateStats();
   saveState();
-  checkBadges();
-  updatePetUI();
-  updateTopbar();
-  document.getElementById('quizComboDisplay').textContent = combo>0?'🔥 '+combo+'连击':'';
+}
+
+function checkBadges(percentage) {
+  const badges = [
+    { id: 'first', name: '初次冒险', icon: '🌟', condition: () => state.completed >= 1 },
+    { id: 'streak3', name: '三连击', icon: '🔥', condition: () => state.score >= 3 },
+    { id: 'perfect', name: '完美通关', icon: '💯', condition: () => percentage === 100 },
+    { id: 'master', name: '学科大师', icon: '👑', condition: () => state.points >= 100 },
+    { id: 'explorer', name: '探索者', icon: '🗺️', condition: () => state.completed >= 20 },
+    { id: 'warrior', name: '学习勇士', icon: '⚔️', condition: () => state.level >= 3 },
+    { id: 'collector', name: '收藏家', icon: '🏅', condition: () => state.badges.length >= 5 },
+    { id: 'champion', name: '冠军', icon: '🥇', condition: () => state.points >= 500 },
+    { id: 'legend', name: '传奇', icon: '🐉', condition: () => state.level >= 10 },
+    { id: 'genius', name: '小天才', icon: '🧠', condition: () => percentage === 100 && state.filteredQuestions.length >= 10 }
+  ];
   
-  setTimeout(()=>{
-    quizIndex++;
-    showQuiz();
-  }, isCorrect?600:1200);
-}
-
-function closeQuiz(){
-  document.getElementById('quizScreen').classList.remove('active');
-}
-
-function endQuiz(){
-  document.getElementById('quizScreen').classList.remove('active');
-  checkTaskProgress();
-  updatePetUI();
-  updateTopbar();
-  
-  // Congratulate if did well
-  if(currentQuiz.correct>=5){
-    let m = document.getElementById('confirmModal');
-    m.innerHTML = '<div class="modal-content"><div class="mc-emoji">🎉</div><div class="mc-title">太棒了！</div><div class="mc-text">答对 '+currentQuiz.correct+'/'+quizQuestions.length+' 题，获得 '+currentQuiz.gemEarned+' 💎！'+((currentQuiz.combo||0)>=5?'最高'+currentQuiz.combo+'连击！':'')+'</div><button class="mc-btn primary" onclick="document.getElementById('confirmModal').classList.remove('active')">继续冒险</button></div>';
-    m.classList.add('active');
-  }
-}
-
-function checkTaskProgress(){
-  let today = new Date().toDateString();
-  let states = JSON.parse(localStorage.getItem('la_taskStates_'+today)||'[]');
-  DAILY_TASKS.forEach(t=>{
-    let st = states.find(s=>s.id===t.id)||{id:t.id,progress:0,claimed:false};
-    if(st.claimed) return;
-    if(t.combo && maxCombo>=t.target) st.progress = maxCombo;
-    else if(t.subject) st.progress = Math.min(st.progress||0, t.target);
-    else st.progress = Math.min((st.progress||0)+1, t.target);
-    
-    // Update state
-    let idx = states.findIndex(s=>s.id===t.id);
-    if(idx>=0) states[idx] = st; else states.push(st);
+  badges.forEach(badge => {
+    if (!state.badges.includes(badge.id) && badge.condition()) {
+      state.badges.push(badge.id);
+    }
   });
-  localStorage.setItem('la_taskStates_'+today, JSON.stringify(states));
-  renderTasks();
 }
 
-function claimTask(taskId){
-  let today = new Date().toDateString();
-  let states = JSON.parse(localStorage.getItem('la_taskStates_'+today)||'[]');
-  let t = DAILY_TASKS.find(t=>t.id===taskId);
-  if(!t) return;
-  let st = states.find(s=>s.id===taskId)||{id:taskId,progress:0,claimed:false};
-  if(st.progress>=t.target && !st.claimed){
-    st.claimed = true;
-    gems += t.gemReward;
-    petExp += Math.floor(t.gemReward/5);
-    // Update state
-    let idx = states.findIndex(s=>s.id===taskId);
-    if(idx>=0) states[idx] = st; else states.push(st);
-    localStorage.setItem('la_taskStates_'+today, JSON.stringify(states));
+function renderMap() {
+  const nodes = [
+    { id: 1, name: '拼音村', icon: '🏘️', subject: 'chinese' },
+    { id: 2, name: '数字山', icon: '⛰️', subject: 'math' },
+    { id: 3, name: '字母岛', icon: '🏝️', subject: 'english' },
+    { id: 4, name: '汉字城', icon: '🏯', subject: 'chinese' },
+    { id: 5, name: '计算谷', icon: '🧮', subject: 'math' },
+    { id: 6, name: '语法林', icon: '🌲', subject: 'english' },
+    { id: 7, name: '阅读湖', icon: '🌊', subject: 'chinese' },
+    { id: 8, name: '几何峰', icon: '🔺', subject: 'math' },
+    { id: 9, name: '对话桥', icon: '🌉', subject: 'english' }
+  ];
+  
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <h2 style="text-align:center; margin-bottom:20px; color:#667eea;">🗺️ 冒险地图</h2>
+    <div class="map-container">
+      ${nodes.map((node, i) => {
+        const completed = state.completed > i * 5;
+        const current = state.completed >= (i - 1) * 5 && state.completed < i * 5;
+        const status = completed ? 'completed' : current ? 'current' : 'locked';
+        return `<div class="map-node ${status}" onclick="startMapQuiz('${node.subject}')">${node.icon}</div>`;
+      }).join('')}
+    </div>
+    <p style="text-align:center; margin-top:20px; color:#666;">点击节点开始挑战！</p>
+  `;
+}
+
+function startMapQuiz(subject) {
+  startQuiz(subject);
+}
+
+function renderBadges() {
+  const allBadges = [
+    { id: 'first', name: '初次冒险', icon: '🌟' },
+    { id: 'streak3', name: '三连击', icon: '🔥' },
+    { id: 'perfect', name: '完美通关', icon: '💯' },
+    { id: 'master', name: '学科大师', icon: '👑' },
+    { id: 'explorer', name: '探索者', icon: '🗺️' },
+    { id: 'warrior', name: '学习勇士', icon: '⚔️' },
+    { id: 'collector', name: '收藏家', icon: '🏅' },
+    { id: 'champion', name: '冠军', icon: '🥇' },
+    { id: 'legend', name: '传奇', icon: '🐉' },
+    { id: 'genius', name: '小天才', icon: '🧠' }
+  ];
+  
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <h2 style="text-align:center; margin-bottom:20px; color:#667eea;">🏅 徽章墙</h2>
+    <div class="badge-grid">
+      ${allBadges.map(badge => {
+        const unlocked = state.badges.includes(badge.id);
+        return `
+          <div class="badge-item ${unlocked ? '' : 'locked'}">
+            <div class="badge-icon">${badge.icon}</div>
+            <div class="badge-name">${badge.name}</div>
+            <div style="font-size:0.8em; color:#999; margin-top:5px;">${unlocked ? '已获得' : '未解锁'}</div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+function renderSettings() {
+  const content = document.getElementById('content');
+  content.innerHTML = `
+    <h2 style="text-align:center; margin-bottom:20px; color:#667eea;">⚙️ 设置</h2>
+    <div class="settings-section">
+      <h3>游戏设置</h3>
+      <div class="setting-item">
+        <span>音效</span>
+        <div class="toggle-switch ${state.soundEnabled ? 'active' : ''}" onclick="toggleSound()"></div>
+      </div>
+    </div>
+    <div class="settings-section">
+      <h3>数据管理</h3>
+      <button class="btn-primary" onclick="resetProgress()" style="background: #f44336;">重置进度</button>
+    </div>
+  `;
+}
+
+function toggleSound() {
+  state.soundEnabled = !state.soundEnabled;
+  renderSettings();
+  saveState();
+}
+
+function resetProgress() {
+  if (confirm('确定要重置所有进度吗？此操作不可恢复！')) {
+    state = {
+      currentTab: 'subjects',
+      currentSubject: null,
+      currentGrade: 2,
+      currentQuestion: 0,
+      score: 0,
+      answers: [],
+      level: 1,
+      points: 0,
+      badges: [],
+      completed: 0,
+      soundEnabled: true
+    };
     saveState();
-    updatePetUI();
-    updateTopbar();
-    renderTasks();
+    updateStats();
+    showTab('subjects');
   }
 }
 
-function renderTasks(){
-  let today = new Date().toDateString();
-  let states = JSON.parse(localStorage.getItem('la_taskStates_'+today)||'[]');
-  let list = document.getElementById('taskList');
-  list.innerHTML = DAILY_TASKS.map(t=>{
-    let st = states.find(s=>s.id===t.id)||{id:t.id,progress:0,claimed:false};
-    let done = st.claimed || st.progress>=t.target;
-    return '<div class="task-item'+(done?' done':'')+'"><div class="ti-emoji">'+t.emoji+'</div><div class="ti-info"><div class="ti-title">'+t.title+'</div><div class="ti-sub">'+t.desc+'</div></div><div class="ti-prog">'+Math.min(st.progress,t.target)+'/'+t.target+'</div>'+(st.claimed?'<button class="ti-claim claimed">已领</button>':(st.progress>=t.target?'<button class="ti-claim" onclick="claimTask('+t.id+')">领'+t.gemReward+'💎</button>':'<button class="ti-claim" style="background:#ddd;cursor:default">+'+t.gemReward+'💎</button>'))+'</div>';
-  }).join('');
-}
-
-function checkBadges(){
-  BADGE_DEFS.forEach(b=>{
-    if(unlockedBadges.has(b.id)) return;
-    let unlock = false;
-    if(b.id==='first' && totalAnswered>=1) unlock=true;
-    if(b.id==='combo5' && maxCombo>=5) unlock=true;
-    if(b.id==='combo10' && maxCombo>=10) unlock=true;
-    if(b.id==='gem50' && gems>=50) unlock=true;
-    if(b.id==='gem100' && gems>=100) unlock=true;
-    if(b.id==='petlv2' && petLevel>=2) unlock=true;
-    if(b.id==='petlv5' && petLevel>=5) unlock=true;
-    
-    if(unlock){
-      unlockedBadges.add(b.id);
-      localStorage.setItem('la_badges', JSON.stringify([...unlockedBadges]));
-      showBadgeToast(b);
-    }
-  });
-  
-  // Level check
-  if(petExp>=5 && petLevel<2){ petLevel=2; petExp=0; checkBadges(); }
-  else if(petExp>=15 && petLevel<3){ petLevel=3; petExp=0; checkBadges(); }
-  else if(petExp>=30 && petLevel<4){ petLevel=4; petExp=0; checkBadges(); }
-  else if(petExp>=60 && petLevel<5){ petLevel=5; petExp=0; checkBadges(); }
-}
-
-function dailyReset(){
-  let today = new Date().toDateString();
-  // Check if tasks need init
-  if(!localStorage.getItem('la_taskStates_'+today)){
-    localStorage.setItem('la_taskStates_'+today, '[]');
-    renderTasks();
-  }
-  // Count tasks done for daily badge
-  let states = JSON.parse(localStorage.getItem('la_taskStates_'+today)||'[]');
-  let done = states.filter(s=>s.claimed).length;
-  if(done>=3 && !unlockedBadges.has('daily3')){
-    unlockedBadges.add('daily3');
-    localStorage.setItem('la_badges', JSON.stringify([...unlockedBadges]));
-    showBadgeToast(BADGE_DEFS.find(b=>b.id==='daily3'));
-  }
-}
-
-function showBadgeToast(b){
-  let toast = document.getElementById('badgeToast');
-  toast.innerHTML = '<div class="badge-toast"><div class="be">'+b.emoji+'</div><div class="bn">'+b.name+'解锁！</div><div class="bd">'+b.desc+'</div><button class="bok" onclick="this.parentElement.remove()">太棒了！</button></div>';
-  setTimeout(()=>{
-    let el = toast.querySelector('.badge-toast');
-    if(el) el.remove();
-  }, 3500);
-}
-
-// ===== Overlays =====
-function showBadges(){
-  let panel = document.getElementById('badgePanel');
-  panel.innerHTML = '<h3>🏅 我的徽章</h3><div class="badge-grid">'+BADGE_DEFS.map(b=>{
-    let un = unlockedBadges.has(b.id);
-    return '<div class="badge-cell '+(un?'unlocked':'locked')+'"><div class="bi">'+b.emoji+'</div><div class="nam">'+b.name+'</div><div class="dsc">'+(un?'已解锁':'未解锁')+'</div></div>';
-  }).join('')+'</div><button class="secondary-btn" onclick="document.getElementById('badgeOverlay').classList.remove('active')">关闭</button>';
-  document.getElementById('badgeOverlay').classList.add('active');
-}
-
-function showWrongBook(){
-  let panel = document.getElementById('wrongPanel');
-  if(wrongBook.length===0){
-    panel.innerHTML = '<h3>📝 错题本</h3><div style="text-align:center;padding:20px;color:var(--sub)">还没有错题，太厉害了！🎉</div><button class="secondary-btn" onclick="document.getElementById('wrongOverlay').classList.remove('active')">关闭</button>';
-  } else {
-    panel.innerHTML = '<h3>📝 错题本 ('+wrongBook.length+'题)</h3><div class="wrong-list">'+wrongBook.slice().reverse().map(w=>'<div class="wrong-item"><div class="q">'+w.question+'</div><div class="a">✅ 正确答案：'+w.answer+'</div><div class="ua">❌ 你的答案：'+(w.userAnswer||'（无）')+'</div></div>').join('')+'</div><button class="secondary-btn" onclick="document.getElementById('wrongOverlay').classList.remove('active')">关闭</button><button class="danger-btn" onclick="clearWrongBook()">🗑️ 清空错题本</button>';
-  }
-  document.getElementById('wrongOverlay').classList.add('active');
-}
-
-function clearWrongBook(){
-  if(confirm('确定要清空所有错题吗？')){
-    wrongBook = [];
-    localStorage.setItem('la_wrongBook','[]');
-    showWrongBook();
-  }
-}
-
-function showSettings(){
-  let panel = document.getElementById('settingsPanel');
-  panel.innerHTML = '<h3>⚙️ 设置</h3><div class="setting-row"><span class="label">🔊 音效</span><button class="toggle '+(soundOn?'on':'off')+'" onclick="toggleSound(this)"><div class="knob"></div></button></div><div class="setting-row"><span class="label">📊 统计</span><span style="font-size:.85em;color:var(--sub)">答对 '+totalCorrect+'/'+totalAnswered+' · 最高'+maxCombo+'连击</span></div><button class="secondary-btn" onclick="document.getElementById('settingsOverlay').classList.remove('active')">关闭</button><button class="danger-btn" onclick="resetAll()">🔄 重置所有进度</button>';
-  document.getElementById('settingsOverlay').classList.add('active');
-}
-
-function toggleSound(btn){
-  soundOn = !soundOn;
-  localStorage.setItem('la_sound', soundOn);
-  btn.className = 'toggle '+(soundOn?'on':'off');
-}
-
-function resetAll(){
-  let m = document.getElementById('confirmModal');
-  m.innerHTML = '<div class="modal-content"><div class="mc-emoji">⚠️</div><div class="mc-title">确认重置？</div><div class="mc-text">所有进度将被清除，无法恢复！</div><button class="mc-btn secondary" onclick="document.getElementById('confirmModal').classList.remove('active')">取消</button><button class="mc-btn danger" onclick="doReset()">确认重置</button></div>';
-  m.classList.add('active');
-}
-
-function doReset(){
-  localStorage.clear();
-  location.reload();
-}
-
-// ===== Pet interaction =====
-function clickPet(e){
-  let gemBonus = Math.floor(Math.random()*3)+1;
-  gems += gemBonus;
-  petExp += 1;
-  
-  // Float animation
-  let container = document.querySelector('.pet-container');
-  let gem = document.createElement('div');
-  gem.className = 'float-gem';
-  gem.textContent = '💎';
-  gem.style.left = '50%';
-  gem.style.top = '20%';
-  container.appendChild(gem);
-  setTimeout(()=>gem.remove(), 800);
-  
-  saveState();
-  checkBadges();
-  updatePetUI();
-  updateTopbar();
-}
-
-// ===== Tabs =====
-function switchTab(tab){
-  document.querySelectorAll('#tab-subjects,#tab-map,#tab-tasks').forEach(el=>el.style.display='none');
-  document.querySelectorAll('.nav-tab').forEach(el=>el.classList.remove('active'));
-  document.getElementById('tab-'+tab).style.display = 'block';
-  event.target.classList.add('active');
-  if(tab==='tasks') renderTasks();
-  if(tab==='map') renderMap();
-}
-
-// ===== Save/Load =====
-function saveState(){
-  localStorage.setItem('la_gems', gems);
-  localStorage.setItem('la_petExp', petExp);
-  localStorage.setItem('la_petLevel', petLevel);
-  localStorage.setItem('la_maxCombo', maxCombo);
-  localStorage.setItem('la_totalCorrect', totalCorrect);
-  localStorage.setItem('la_totalAnswered', totalAnswered);
-}
-
-// ===== Clouds decoration =====
-function genClouds(){
-  let clouds = document.getElementById('clouds');
-  for(let i=0;i<5;i++){
-    let c = document.createElement('div');
-    let w = 60+Math.random()*80;
-    let h = 20+Math.random()*15;
-    c.className = 'cloud';
-    c.style.cssText = 'width:'+w+'px;height:'+h+'px;top:'+(5+Math.random()*25)+'%;left:'+Math.random()*80+'%;--d:'+(8+Math.random()*6)+'s;--dl:-'+(Math.random()*5)+'s;--dx:'+(20+Math.random()*30)+'px';
-    clouds.appendChild(c);
-  }
-}
-
-// ===== Init =====
-function init(){
-  // Set today info
-  let greetings = ['新的一天，开始冒险吧！🌟','加油，小探险家！🚀','今天也要努力学习哦！💪','知识就是力量！📚'];
-  document.getElementById('todayInfo').textContent = greetings[Math.floor(Math.random()*greetings.length)];
-  
-  genClouds();
-  renderSubjects();
-  renderTasks();
-  renderMap();
-  updatePetUI();
-  updateTopbar();
-  dailyReset();
-  
-  // Overlay close handlers
-  document.getElementById('badgeOverlay').onclick = function(e){ if(e.target===this) this.classList.remove('active'); };
-  document.getElementById('wrongOverlay').onclick = function(e){ if(e.target===this) this.classList.remove('active'); };
-  document.getElementById('settingsOverlay').onclick = function(e){ if(e.target===this) this.classList.remove('active'); };
-  document.getElementById('confirmModal').onclick = function(e){ if(e.target===this) this.classList.remove('active'); };
-  document.getElementById('quizScreen').onclick = function(e){ if(e.target===this) closeQuiz(); };
-}
-
-init();
+// Initialize
+updateStats();
+renderSubjects();
 </script>
 </body>
 </html>
