@@ -344,7 +344,13 @@ function updateStats() {
 function showTab(tab) {
   state.currentTab = tab;
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  
+  // Find the nav tab button and activate it
+  const tabButtons = document.querySelectorAll('.nav-tab');
+  const tabIndex = ['subjects', 'map', 'badges', 'settings'].indexOf(tab);
+  if (tabIndex >= 0 && tabButtons[tabIndex]) {
+    tabButtons[tabIndex].classList.add('active');
+  }
   
   const content = document.getElementById('content');
   content.innerHTML = '';
@@ -455,14 +461,20 @@ function answerQuestion(answer) {
   
   // Show feedback
   const buttons = document.querySelectorAll('.option-btn');
-  buttons[q.answer].classList.add('correct');
-  if (!correct) {
+  if (buttons[q.answer]) {
+    buttons[q.answer].classList.add('correct');
+  }
+  if (!correct && buttons[answer]) {
     buttons[answer].classList.add('wrong');
   }
   
   // Disable all buttons
-  buttons.forEach(btn => btn.onclick = null);
+  buttons.forEach(btn => {
+    btn.disabled = true;
+    btn.style.pointerEvents = 'none';
+  });
   
+  // Auto-advance after 800ms
   setTimeout(() => {
     state.currentQuestion++;
     if (state.currentQuestion < state.filteredQuestions.length) {
@@ -470,7 +482,7 @@ function answerQuestion(answer) {
     } else {
       showResult();
     }
-  }, 1000);
+  }, 800);
 }
 
 function showResult() {
